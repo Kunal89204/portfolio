@@ -132,9 +132,8 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
           display: "flex",
           justifyContent: "center",
         }}
-        action={mailchimp.action}
-        method="post"
-        id="mc-embedded-subscribe-form"
+        action="https://formspree.io/f/mkgjbyeg"
+        method="POST"
         name="mc-embedded-subscribe-form"
       >
         <Flex id="mc_embed_signup_scroll" fillWidth maxWidth={24} gap="8">
@@ -172,7 +171,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
           </div>
           <div aria-hidden="true" style={{ position: "absolute", left: "-5000px" }}>
             <input
-              type="text"
+              type="email"
               readOnly
               name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa"
               tabIndex={-1}
