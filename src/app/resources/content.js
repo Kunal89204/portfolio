@@ -9,7 +9,7 @@ const person = {
   role: "Co-Founder",
   avatar: "/images/avatar.jpg",
   location: "Asia/India", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -138,7 +138,7 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
+        name: "Indraprastha University",
         description: <>Studied software engineering.</>,
       },
       {
