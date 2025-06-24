@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+}
+
+body,
+html {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.gray-gradient {
+  position: relative;
+  background: linear-gradient(120deg, #212121 -15%, #191919 58%, #131313 97%);
+  border-color: #202020;
+  /* Overlay the texture with reduced opacity using a pseudo-element */
+}
+
+.gray-gradient-2 {
+  background: linear-gradient(120deg, #212121 -15%, #191919 58%, #131313 97%);
+  border-color: #202020;
+}
+
+.gray-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("../../public/texture.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Adjust this value as needed for desired image opacity */
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.shadow-gradient::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  background-color: rgba(0, 0, 0, 0);
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  background-size: auto;
+  background-origin: padding-box;
+  background-clip: border-box;
+}
+
+
+.hover-bg{
+  background-color: white !important;
+}
+
+.img-gradient {
+  background: linear-gradient(90deg, #3c58e3 -15%, #c2ebff 58%, #5ab5e2 97%);
+}
+
+
+.slide-in{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  transform-origin: bottom;
+}
+
+.slide-out{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  transform-origin: top;
+}
