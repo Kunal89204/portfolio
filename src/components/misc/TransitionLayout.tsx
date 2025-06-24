@@ -1,23 +1,49 @@
-// components/TransitionLayout.tsx
-'use client';
+"use client";
+import Link, { LinkProps } from "next/link";
+import React from "react";
+import { useRouter } from "next/navigation";
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+interface TransitionLinkProps extends LinkProps {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+}
 
-export default function TransitionLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export const TransitionLink: React.FC<TransitionLinkProps> = ({
+  children,
+  href,
+  className,
+  ...props
+}) => {
+  const router = useRouter();
+
+  const handleTransition = async (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    const body = document.querySelector("body");
+
+    body?.classList.add("page-transition");
+
+    await sleep(500);
+    router.push(href);
+    await sleep(500);
+
+    body?.classList.remove("page-transition");
+  };
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.4, ease: 'easeInOut' }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <Link
+      {...props}
+      href={href}
+      onClick={handleTransition}
+      className={className}
+    >
+      {children}
+    </Link>
   );
-}
+};
