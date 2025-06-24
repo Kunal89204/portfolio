@@ -264,7 +264,7 @@ const Grid = () => {
               className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300 -z-10"
             />
             <div className="text-5xl z-10 pt-13 pb-4">
-              <p className="z-10">Let's</p>
+              <p className="z-10">Let&apos;'s</p>
               <p>
                 work <span className="text-blue-700">together.</span>
               </p>
