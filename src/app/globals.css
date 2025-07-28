@@ -78,9 +78,60 @@ html {
 }
 
 
-body.page-transition {
+/* body.page-transition {
   opacity: 0;
   background-color: #000;
   transform: translateY(40px);
   filter: blur(10px);
+} */
+
+body.page-transition {
+  opacity: 0;
+  background-color: #000;
+  /* transform: translateY(40px); */
+  filter: blur(10px);
+}
+
+/* Shutter down animation */
+body.page-transition::after {
+  content: "";
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #131313;
+  z-index: 9999;
+  animation: shutterDown 0.5s ease-in-out forwards;
+}
+
+/* Shutter up animation */
+body.page-transition-up::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #131313;
+  z-index: 9999;
+  animation: shutterUp 0.5s ease-in-out forwards;
+}
+
+@keyframes shutterDown {
+  0% {
+    top: -100vh;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes shutterUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100vh;
+  }
 }

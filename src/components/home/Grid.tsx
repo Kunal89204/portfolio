@@ -24,7 +24,9 @@ const Grid = () => {
       <div className="lg:flex gap-6 ">
         {/* Profile Gris box */}
         <TransitionLink href={"/about"} className="lg:w-1/2 w-full ">
-          <motion.div className="sm:flex sm:justify-start relative border items-center h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300">
+          <motion.div
+    
+           className="sm:flex sm:justify-start relative border items-center h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300">
             <img
               src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
               alt=""
@@ -51,8 +53,12 @@ const Grid = () => {
         </TransitionLink>
 
         {/* Projects and loop grid box */}
-        <div className="lg:w-1/2 w-full">
-          <div className="relative overflow-hidden border gray-gradient  rounded-full w-full py-3 h-14">
+        <div className="lg:w-1/2 w-full mt-6 lg:mt-0">
+          <motion.div
+             initial={{ scale: 0.5, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+           className="relative overflow-hidden border gray-gradient  rounded-full w-full py-3 h-14">
             <motion.div
               className="absolute top-0 left-0 flex items-center h-full whitespace-nowrap"
               initial={{ x: 0 }}
@@ -65,36 +71,40 @@ const Grid = () => {
               }}
               style={{ minWidth: "200%" }}
             >
-              <span className="px-4 text-base font-medium">
+              <span className="px-4 text-sm lg:text-base font-medium">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit
                 &nbsp;•&nbsp;
               </span>
-              <span className="px-4 text-base font-medium">
+              <span className="px-4 text-sm lg:text-base font-medium">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit
                 &nbsp;•&nbsp;
               </span>
-              <span className="px-4 text-base font-medium">
+              <span className="px-4 text-sm lg:text-base font-medium">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit
                 &nbsp;•&nbsp;
               </span>
-              <span className="px-4 text-base font-medium">
+              <span className="px-4 text-sm lg:text-base font-medium">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit
                 &nbsp;•&nbsp;
               </span>
-              <span className="px-4 text-base font-medium">
+              <span className="px-4 text-sm lg:text-base font-medium">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit
                 &nbsp;•&nbsp;
               </span>
-              <span className="px-4 text-base font-medium">
+              <span className="px-4 text-sm lg:text-base font-medium">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit
                 &nbsp;•&nbsp;
               </span>
             </motion.div>
-          </div>
+          </motion.div>
 
           <div className="sm:flex gap-6 mt-6">
             <TransitionLink href={"/ss"} className="lg:w-1/2 w-full">
-              <div className=" gray-gradient border group rounded-[30px] p-4 lg:aspect-[1/0.9]">
+              <motion.div
+                 initial={{ scale: 0.5, opacity: 0 }}
+                 animate={{ scale: 1, opacity: 1 }}
+                 transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+               className=" gray-gradient border group rounded-[30px] p-4 lg:aspect-[1/0.9]">
                 <img
                   src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                   alt=""
@@ -112,10 +122,14 @@ const Grid = () => {
 
                 <p className="text-xs text-[#a0a0a0] mt-6">MORE ABOUT ME</p>
                 <p className="text-xl">Credentials</p>
-              </div>
+              </motion.div>
             </TransitionLink>
             <TransitionLink href={"/projects"} className="lg:w-1/2 w-full ">
-              <div className=" gray-gradient border group rounded-[30px] p-4 h-full mt-8 sm:mt-0">
+              <motion.div
+                 initial={{ scale: 0.5, opacity: 0 }}
+                 animate={{ scale: 1, opacity: 1 }}
+                 transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+               className=" gray-gradient border group rounded-[30px] p-4 h-full mt-8 sm:mt-0">
                 <img
                   src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                   alt=""
@@ -132,7 +146,7 @@ const Grid = () => {
                 />
                 <p className="text-xs text-[#a0a0a0] mt-6">SHOWCASE</p>
                 <p className="text-xl">Projects</p>
-              </div>
+              </motion.div>
             </TransitionLink>
           </div>
         </div>
@@ -140,10 +154,14 @@ const Grid = () => {
 
       {/* Second Row */}
 
-      <div className="sm:flex  my-8 gap-6">
+      <div className="lg:flex  my-8 gap-6">
         {/* First column */}
-        <TransitionLink href={"/"} className="lg:w-1/4 w-full">
-          <div className="relative  gray-gradient border group rounded-[30px] p-4 lg:aspect-[1/0.9]">
+        <TransitionLink href={"/"} className=" lg:w-1/4 w-full">
+          <motion.div
+             initial={{ scale: 0.5, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+           className="relative  gray-gradient border group rounded-[30px] p-4 lg:aspect-[1/0.9]">
             <img
               src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
               alt=""
@@ -163,11 +181,37 @@ const Grid = () => {
               <p className="text-xs text-[#666666] font-semibold"> READ</p>
               <p className="text-lg  py-2 font-semibold">Blogs</p>
             </div>
-          </div>
+          </motion.div>
         </TransitionLink>
 
         {/* Second column */}
-        <div className="lg:w-1/4 w-full gray-gradient border rounded-[30px] p-4 lg:aspect-[1/0.9]">
+
+        <motion.div
+           initial={{ scale: 0.5, opacity: 0 }}
+           animate={{ scale: 1, opacity: 1 }}
+           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+         className="lg:w-2/4 w-full gray-gradient border rounded-[30px] p-4 my-6 lg:my-0">
+          <div className="flex justify-around py-3 lg:py-6">
+            <SiMongodb size={44} className="z-10 scale-75" />
+            <SiExpress size={44} className="z-10 scale-75" />
+            <SiReact size={44} className="z-10 scale-75" />
+            <SiNodedotjs size={44} className="z-10 scale-75" />
+            <SiDocker size={44} className="z-10 scale-75" />
+            <SiRedis size={44} className="z-10 scale-75" />
+          </div>
+
+          <div className="lg:pt-10 pt-6 pb-4">
+            <p className="text-xs text-[#666666]">TECH STACK</p>
+            <p className="text-xl  font-semibold">MERN Stack</p>
+          </div>
+        </motion.div>
+
+        {/* Third column */}
+        <motion.div
+           initial={{ scale: 0.5, opacity: 0 }}
+           animate={{ scale: 1, opacity: 1 }}
+           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+         className="lg:w-1/4 w-full gray-gradient border rounded-[30px] p-4 lg:aspect-[1/0.9] ">
           <div className="gray-gradient border-2 flex gap-2 p-4 justify-center rounded-[30px]">
             <div className="p-5 rounded-full gray-gradient border-2 group group-hover:bg-white transition-all duration-300 cursor-pointer">
               <FaLinkedin
@@ -183,45 +227,21 @@ const Grid = () => {
             </div>
           </div>
 
-          <div className="absolute bottom-5 left-5">
+          <div className="lg:absolute bottom-5 left-5 my-4 lg:my-0">
             <p className="text-xs text-[#666666] font-semibold"> BLOG</p>
-            <p className="text-lg  py-2 font-semibold">Profiles</p>
+            <p className="text-lg  lg:py-2 font-semibold">Profiles</p>
           </div>
-        </div>
-
-        {/* Third column */}
-        <div className="lg:w-1/4 w-full gray-gradient border rounded-[30px] p-4 lg:aspect-[1/0.9]">
-          <div className="flex justify-around py-3">
-            <SiReact size={40} className="z-10" />
-            <SiMongodb size={40} className="z-10" />
-            <SiExpress size={40} className="z-10" />
-          </div>
-
-          <div className="pt-10 pb-4">
-            <p className="text-xs text-[#666666]">TECH STACK</p>
-            <p className="text-xl  font-semibold">MERN Stack</p>
-          </div>
-        </div>
-
-        {/* Fourth column */}
-        <div className="lg:w-1/4 w-full gray-gradient border rounded-[30px] p-4 lg:aspect-[1/0.9]">
-          <div className="flex justify-around py-3">
-            <SiNodedotjs size={40} className="z-10" />
-            <SiDocker size={40} className="z-10" />
-            <SiRedis size={40} className="z-10" />
-          </div>
-
-          <div className="pt-10 pb-4">
-            <p className="text-xs text-[#666666]">BACKEND</p>
-            <p className="text-xl  font-semibold">Technologies</p>
-          </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Third Row */}
       <div className="sm:flex gap-6">
         <TransitionLink href={"/"} className="lg:w-1/3 w-full h-full">
-          <div className="gray-gradient border rounded-[30px] p-4 ">
+          <motion.div
+             initial={{ scale: 0.5, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+           className="gray-gradient border rounded-[30px] p-4 ">
             <div className="flex justify-around py-3">
               <SiAndroid size={40} className="z-10" />
               <SiApple size={40} className="z-10" />
@@ -232,23 +252,30 @@ const Grid = () => {
               <p className="text-xs text-[#666666]">SPECIALIZATION</p>
               <p className="text-xl  font-semibold">Services offering</p>
             </div>
-          </div>
+          </motion.div>
         </TransitionLink>
 
-        <TransitionLink href={"/"} className="lg:w-2/3 w-full h-full relative group ">
-          <div className="gray-gradient border rounded-[30px] p-4 z-10 mt-8 sm:mt-0">
+        <TransitionLink
+          href={"/"}
+          className="lg:w-2/3 w-full h-full relative group "
+        >
+          <motion.div
+             initial={{ scale: 0.5, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+           className="gray-gradient border rounded-[30px] p-4 z-10 mt-8 sm:mt-0">
             <img
               src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
               alt=""
               className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300 -z-10"
             />
-            <div className="text-5xl z-10 pt-13 pb-4">
+            <div className="text-5xl z-10 lg:pt-13 pb-4 max-w-[200px] lg:max-w-none">
               <p className="z-10">Let&apos;s</p>
               <p>
                 work <span className="text-blue-700">together.</span>
               </p>
             </div>
-          </div>
+          </motion.div>
         </TransitionLink>
       </div>
     </div>

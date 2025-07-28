@@ -1,4 +1,5 @@
-
+"use client"
+import { motion } from "motion/react";
 import Image from "next/image";
 import React from "react";
 import profileimg from "../../../public/profileimg.png";
@@ -33,7 +34,13 @@ const About = () => {
     <div className=" max-w-[1150px] mx-auto mt-20">
       <div>
         <div className="flex gap-8">
-          <div className="w-1/3 p-6 border gray-gradient-2 rounded-3xl z-10">
+
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="w-1/3 p-6 border gray-gradient-2 rounded-3xl z-10"
+          >
             <Image
               src={profileimg}
               alt="about"
@@ -41,9 +48,16 @@ const About = () => {
               height={1000}
               className="w-full img-gradient rounded-3xl"
             />
-          </div>
+          </motion.div>
+
+
+
           <div className="w-2/3 flex flex-col justify-between">
-            <div className="flex items-center justify-center gap-2">
+            <motion.div
+             initial={{ scale: 0.5, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+             className="flex items-center justify-center gap-2">
               <Image
                 src={
                   "https://wpriverthemes.com/landing/gridx-html/assets/images/star-2.png"
@@ -63,8 +77,14 @@ const About = () => {
                 height={1000}
                 className="w-14 h-14"
               />
-            </div>
-            <div className="gray-gradient-2 border p-10 rounded-3xl pt-36 relative">
+            </motion.div>
+
+
+            <motion.div
+             initial={{ scale: 0.5, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+             className="gray-gradient-2 border p-10 rounded-3xl pt-36 relative">
               <Image
                 src={arrow}
                 alt="arrow"
@@ -78,12 +98,17 @@ const About = () => {
                 and efficient systems. I am a quick learner and I am always
                 looking for new challenges.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         <div className="flex gap-10 my-8">
-          <div className="w-1/2 gray-gradient-2 rounded-3xl p-10">
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="w-1/2 gray-gradient-2 rounded-3xl p-10"
+          >
             <p className="text-xl font-bold">Experience</p>
 
             {experience.map((item, index) => (
@@ -93,8 +118,12 @@ const About = () => {
                 <p className="text-[gray] text-sm">{item.company}</p>
               </div>
             ))}
-          </div>
-          <div className="w-1/2 gray-gradient-2 rounded-3xl p-10">
+          </motion.div>
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+           className="w-1/2 gray-gradient-2 rounded-3xl p-10">
             <p className="text-xl font-bold">Education</p>
             {education.map((item, index) => (
               <div className="mt-4" key={index}>
@@ -103,7 +132,7 @@ const About = () => {
                 <p className="text-[gray] text-sm">{item.institute}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

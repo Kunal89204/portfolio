@@ -27,13 +27,24 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
     e.preventDefault();
     const body = document.querySelector("body");
 
+    // Add transition class (this triggers shutter down)
     body?.classList.add("page-transition");
 
+    // Wait for shutter down animation
     await sleep(500);
+    
+    // Navigate to new page
     router.push(href);
-    await sleep(500);
-
-    body?.classList.remove("page-transition");
+    
+    
+    setTimeout(() => {
+      body?.classList.remove("page-transition");
+      
+      body?.classList.add("page-transition-up");
+      setTimeout(() => {
+        body?.classList.remove("page-transition-up");
+      }, 500);
+    }, 200);
   };
 
   return (
