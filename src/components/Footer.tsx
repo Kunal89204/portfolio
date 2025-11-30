@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Footer = () => {
@@ -24,11 +25,18 @@ const Footer = () => {
           LinkedIn
         </a>
       </div>
-      <div className="mt-2 text-xs text-[#666]">
-        Built with <span className="text-blue-500">Next.js</span> &amp; <span className="text-cyan-400">React</span>
+      <div className="mt-2 text-xs text-[#666] flex items-center gap-2">
+        <p className="text-white">Design</p>
+        <a
+          href="https://wpriverthemes.com/landing/gridx-html/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image src={"https://wpriverthemes.com/landing/gridx-html/assets/images/logo.svg"} alt="nextjs" width={1000} height={1000} className="w-10" />
+        </a>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
