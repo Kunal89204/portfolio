@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
-import arrow from "../../../public/arrow.png";
 const Works = () => {
   const projects = [
     {

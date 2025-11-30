@@ -27,14 +27,16 @@ const Grid = () => {
           <motion.div
     
            className="sm:flex sm:justify-start relative border items-center h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300">
-            <img
-              src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
+            <Image
+              src={"https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"}
               alt=""
               className="absolute bottom-8 right-8 lg:bottom-5 lg:right-5  w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300 "
+              width={1000}
+              height={1000}
             />
             <Image
-              src={profileimg}
-              alt=""
+              src={profileimg.src}
+              alt="profile"
               width={1000}
               height={1000}
               className="img-gradient w-[200px] lg:w-[50%] mx-auto sm:mx-0  rounded-tr-3xl rounded-bl-3xl z-50"
@@ -105,9 +107,11 @@ const Grid = () => {
                  animate={{ scale: 1, opacity: 1 }}
                  transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                className=" gray-gradient border group rounded-[30px] p-4 lg:aspect-[1/0.9]">
-                <img
-                  src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
+                <Image
+                  src={"https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"}
                   alt=""
+                  width={1000}
+                  height={1000}
                   className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300"
                 />
                 <Image
@@ -130,9 +134,11 @@ const Grid = () => {
                  animate={{ scale: 1, opacity: 1 }}
                  transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                className=" gray-gradient border group rounded-[30px] p-4 h-full mt-8 sm:mt-0">
-                <img
-                  src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
+                <Image
+                  src={"https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"}
                   alt=""
+                  width={1000}
+                  height={1000}
                   className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300"
                 />
                 <Image
@@ -162,9 +168,11 @@ const Grid = () => {
              animate={{ scale: 1, opacity: 1 }}
              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
            className="relative  gray-gradient border group rounded-[30px] p-4 lg:aspect-[1/0.9]">
-            <img
-              src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
+            <Image
+              src={"https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"}
               alt=""
+              width={1000}
+              height={1000}
               className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300"
             />
             <Image
@@ -264,9 +272,11 @@ const Grid = () => {
              animate={{ scale: 1, opacity: 1 }}
              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
            className="gray-gradient border rounded-[30px] p-4 z-10 mt-8 sm:mt-0">
-            <img
-              src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
+            <Image
+              src={"https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"}
               alt=""
+              width={1000}
+              height={1000}
               className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300 -z-10"
             />
             <div className="text-5xl z-10 lg:pt-13 pb-4 max-w-[200px] lg:max-w-none">
