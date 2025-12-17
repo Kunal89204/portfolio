@@ -29,7 +29,7 @@ const About = () => {
     },
     {
       date: "2023-2027",
-      title: "B.Tech AIML",
+      title: "B.Tech in Artificial Intelligence & Machine Learning",
       institute: "GGSIPU",
     },
   ];
@@ -115,7 +115,7 @@ const About = () => {
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
             className="w-full lg:w-1/2 gray-gradient-2 rounded-3xl p-6 sm:p-8 lg:p-10"
           >
-            <p className="text-lg sm:text-xl font-bold">Experience</p>
+            <p className="text-lg sm:text-xl font-bold">Professional Work</p>
 
             {experience.map((item, index) => (
               <div className="mt-4" key={index}>

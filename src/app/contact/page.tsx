@@ -1,97 +1,76 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+
+import { Mail } from "lucide-react";
+import { BsGithub } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa6";
 
 const Contact = () => {
+  const socialLinks = [
+    {
+      icon: <Mail size={30} />,
+      link: "me@kunalkhandelwal.dev",
+      label: "Mail me",
+    },
+    {
+      icon: <BsGithub size={30} />,
+      link: "https://github.com/kunal89204",
+      label: "GitHub",
+    },
+    {
+      icon: <FaLinkedin size={30} />,
+      link: "https://www.linkedin.com/in/kunal-khandelwal-19a52127b/",
+      label: "LinkedIn",
+    },
+  ];
   return (
-    <div className="min-h-screen px-6 lg:px-10 max-w-[800px] mx-auto mt-20 flex flex-col items-center">
-      {/* Header */}
-      <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4"
-      >
-        <Image
-          src="https://wpriverthemes.com/landing/gridx-html/assets/images/star-2.png"
-          alt="star"
-          width={50}
-          height={50}
-          className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
-        />
-        <h1 className="text-3xl sm:text-5xl lg:text-7xl text-center font-bold">
-          CONTACT
-        </h1>
-        <Image
-          src="https://wpriverthemes.com/landing/gridx-html/assets/images/star-2.png"
-          alt="star"
-          width={50}
-          height={50}
-          className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
-        />
-      </motion.div>
+    <div className="px-6 lg:px-4  max-w-[1200px] mx-auto mt-20 flex flex-col items-center">
+      <div className="flex gap-20 w-full mt-14">
+        <div className="w-1/3">
+          <h3 className="text-xl font-semibold">Contact Info</h3>
 
-      {/* Info and Form */}
-      <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-        className="gray-gradient border rounded-[30px] p-8 mt-12 w-full max-w-xl shadow-lg relative overflow-hidden"
-      >
-   
-        <div className="mb-8">
-          <p className="text-[#a0a0a0] mb-2">
-            Feel free to get in touch with me for any project or collaboration!
-          </p>
-          <div className="flex gap-4 flex-wrap">
-            <a
-              href="mailto:kunalkhandelwalcontact@gmail.com"
-              className="text-sm text-white bg-[#181818] px-4 py-2 rounded-md font-medium hover:bg-[#252525] transition"
-            >
-              kunalkhandelwalcontact@gmail.com
-            </a>
-            <a
-              href="https://linkedin.com/in/kunal-khandelwal-19a52127b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-white bg-[#181818] px-4 py-2 rounded-md font-medium hover:bg-[#252525] transition"
-            >
-              LinkedIn
-            </a>
+          {socialLinks.map((link) => (
+            <div key={link.label} className="flex gap-4 py-6">
+              <div className="p-5 rounded-lg bg-gradient-to-br from-[#202020] to-[#090909] border border-[#202020] aspect-square flex items-center justify-center">
+                {link.icon}
+              </div>
+              <div>
+                <p className="text-[#505050] font-semibold">{link.label}</p>
+                <a href={link.link} target="_blank" rel="noopener noreferrer">
+                  {link.link}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="gray-gradient p-10 rounded-3xl border w-2/3">
+          <div>
+            <h2 className="text-5xl">
+              Let&apos;s work <span>together</span>
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-4 py-4 mt-4 relative z-30">
+            <input
+              type="text"
+              placeholder="Name"
+              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4"
+            />
+            <textarea
+              placeholder="Message"
+              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4 resize-none h-40"
+            />
+            <button className="bg-[#303030] font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300 text-white rounded-lg p-4">
+              Send Message
+            </button>
           </div>
         </div>
-        {/* Simple Form */}
-        <form className="flex flex-col gap-4">
-          <input
-            type="text"
-            name="name"
-            required
-            className="border bg-transparent rounded-md px-4 py-2 outline-none focus:ring-2 ring-[#222] transition"
-            placeholder="Your Name"
-          />
-          <input
-            type="email"
-            name="email"
-            required
-            className="border bg-transparent rounded-md px-4 py-2 outline-none focus:ring-2 ring-[#222] transition"
-            placeholder="Your Email"
-          />
-          <textarea
-            name="message"
-            rows={4}
-            required
-            className="border bg-transparent rounded-md px-4 py-2 outline-none focus:ring-2 ring-[#222] transition"
-            placeholder="Your Message"
-          />
-          <button
-            type="submit"
-            className="mt-2 bg-[#252525] hover:bg-[#1a1a1a] text-white py-2 rounded-md font-bold transition"
-          >
-            Send Message
-          </button>
-        </form>
-      </motion.div>
+      </div>
     </div>
   );
 };

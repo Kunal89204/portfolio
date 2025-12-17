@@ -17,6 +17,30 @@ import { FaLinkedin } from "react-icons/fa6";
 import { TransitionLink } from "../misc/TransitionLayout";
 import profileimg from "../../../public/profileimg.png";
 
+const AnimatedShadow = () => (
+  <motion.div
+    initial={{ opacity: 0.5, scale: 1 }}
+    animate={{
+      opacity: [0.4, 0.7, 0.4],
+      scale: [1, 1.08, 1],
+      rotate: [0, 7, -7, 0],
+    }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute inset-0 z-0 pointer-events-none rounded-[30px]"
+    style={{
+      filter: "blur(35px)",
+      background:
+        "radial-gradient(circle at 70% 35%, #3178c6 25%, #00c2ff 65%, transparent 80%)",
+      opacity: 0.6,
+      mixBlendMode: "plus-lighter",
+    }}
+  />
+);
+
 const Grid = () => {
   return (
     <div className=" px-6 lg:px-10 max-w-[1200px] mx-auto mt-20">
@@ -25,7 +49,6 @@ const Grid = () => {
         {/* Profile Gris box */}
         <TransitionLink href={"/about"} className="lg:w-1/2 w-full ">
           <motion.div
-    
            className="sm:flex sm:justify-start relative border items-center h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300">
             <Image
               src={"https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"}
@@ -128,18 +151,23 @@ const Grid = () => {
                 <p className="text-xl">Credentials</p>
               </motion.div>
             </TransitionLink>
-            <TransitionLink href={"/projects"} className="lg:w-1/2 w-full ">
+            <TransitionLink href={"/works"} className="lg:w-1/2 w-full ">
               <motion.div
                  initial={{ scale: 0.5, opacity: 0 }}
                  animate={{ scale: 1, opacity: 1 }}
                  transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-               className=" gray-gradient border group rounded-[30px] p-4 h-full mt-8 sm:mt-0">
+                 className="relative gray-gradient border group rounded-[30px] p-4 h-full mt-8 sm:mt-0 overflow-hidden"
+              >
+                {/* Animated Gradient Shadow */}
+                <AnimatedShadow />
                 <Image
-                  src={"https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"}
+                  src={
+                    "https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
+                  }
                   alt=""
                   width={1000}
                   height={1000}
-                  className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300"
+                  className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300 z-10"
                 />
                 <Image
                   src={
@@ -148,10 +176,12 @@ const Grid = () => {
                   alt=""
                   width={1000}
                   height={1000}
-                  className="w-full"
+                  className="w-full z-20 relative"
                 />
-                <p className="text-xs text-[#a0a0a0] mt-6">SHOWCASE</p>
-                <p className="text-xl">Projects</p>
+                <p className="text-xs text-[#a0a0a0] mt-6 z-20 relative">
+                  SHOWCASE
+                </p>
+                <p className="text-xl z-20 relative">Projects</p>
               </motion.div>
             </TransitionLink>
           </div>

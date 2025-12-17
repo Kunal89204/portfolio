@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
-import Link from "next/link";
 const Works = () => {
   const projects = [
     {
@@ -43,7 +42,7 @@ const Works = () => {
     {
       id: 6,
       title: "QuantumWhale",
-      category: "Personal",
+      category: "Freelance",
       image: "/images/works/qw.png",
       url: "https://thequantumwhale.com",
     },
@@ -124,6 +123,7 @@ const Works = () => {
         </div>
 
         <div className="col-span-2 ">
+
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -152,6 +152,7 @@ const Works = () => {
               className="w-10 h-10 sm:w-12 sm:h-12  lg:w-14 lg:h-14"
             />
           </motion.div>
+
           <div className="grid grid-cols-2 mt-4 gap-4">
             {col2Projects.map((project, i) => (
               <motion.div

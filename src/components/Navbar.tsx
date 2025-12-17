@@ -30,7 +30,7 @@ const Navbar = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="text-2xl font-extrabold tracking-tight"
+          className="text-2xl font-bold tracking-tight"
         >
           Portfolio
         </motion.p>
