@@ -84,7 +84,75 @@ const Works = () => {
 
   return (
     <div className="min-h-screen max-w-[1150px] mx-auto mt-20 px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-3 gap-4">
+      {/* Mobile Layout */}
+      <div className="block md:hidden">
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          className="flex   justify-center gap-2 mb-6"
+        >
+          <Image
+            src={
+              "https://wpriverthemes.com/landing/gridx-html/assets/images/star-2.png"
+            }
+            alt="star"
+            width={1000}
+            height={1000}
+            className="w-8 h-8"
+          />
+          <p className="text-4xl mb-4 text-center font-bold">ALL PROJECTS</p>
+          <Image
+            src={
+              "https://wpriverthemes.com/landing/gridx-html/assets/images/star-2.png"
+            }
+            alt="star"
+            width={1000}
+            height={1000}
+            className="w-8 h-8"
+          />
+        </motion.div>
+
+        <div className="flex flex-col gap-4">
+          {projects.map((project, i) => (
+            <motion.div
+              key={i}
+              className="gray-gradient-2 border rounded-[30px] p-4 relative group cursor-pointer"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={1000}
+                height={1000}
+                className="rounded-[24px] aspect-[1/0.7] object-cover"
+              />
+              <div className="flex flex-col gap-1 py-2">
+                <p className="text-[#a0a0a0] text-md font-semibold">
+                  {project.category}
+                </p>
+                <h3 className="text-xl font-semibold">{project.title}</h3>
+              </div>
+
+              {/* Absolute Arrow image */}
+              <a href={project.url} target="_blank">
+                <Image
+                  src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
+                  alt=""
+                  className="absolute bottom-5 right-5 w-8 h-8 opacity-40 group-hover:opacity-100 transition-all duration-300"
+                  width={1000}
+                  height={1000}
+                />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden md:grid grid-cols-3 gap-4">
         <div className="flex flex-col gap-4 col-span-1 ">
           {col1Projects.map((project, i) => (
             <motion.div
@@ -123,7 +191,6 @@ const Works = () => {
         </div>
 
         <div className="col-span-2 ">
-
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

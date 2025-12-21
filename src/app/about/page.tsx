@@ -10,14 +10,14 @@ import { TransitionLink } from "@/components/misc/TransitionLayout";
 const About = () => {
   const experience = [
     {
-      date: "2007 - 2009",
-      title: "Framework Developer",
-      company: "Quiro",
+      date: "Jan 2024 - Sep 2024",
+      title: "Full Stack Developer",
+      company: "CodeFolder",
     },
     {
-      date: "2007 - 2009",
-      title: "Framework Developer",
-      company: "Quiro",
+      date: "Oct 2024 - Feb 2025",
+      title: "Full Stack Developer",
+      company: "YourWebsite.shop",
     },
   ];
 
