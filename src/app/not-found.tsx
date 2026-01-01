@@ -6,35 +6,17 @@ import { motion } from "motion/react";
 const NotFound = () => {
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center justify-center"
-      style={{ backgroundColor: "#000" }}
+      className=" flex flex-col items-center justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-col items-center gap-2">
         <div className="relative">
           {/* Blurred, minimal glow */}
-          <motion.div
-            className="absolute inset-0 rounded-full blur-2xl opacity-40"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 60%, #fff2 0%, #131313 60%, transparent 90%)",
-            }}
-            initial={{ scale: 0.8, opacity: 0.2 }}
-            animate={{
-              scale: [1, 1.15, 1],
-              opacity: [0.4, 0.6, 0.4],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-          />
+
           <motion.span
-            className="z-10 relative text-[8rem] sm:text-[10rem] lg:text-[12rem] text-transparent bg-clip-text bg-gradient-to-br from-white via-[#fff] to-[#131313] select-none drop-shadow-lg"
+            className="z-10 relative text-[8rem] sm:text-[10rem] lg:text-[12rem] 2xl:text-[13rem] text-transparent bg-clip-text bg-gradient-to-br from-white via-[#fff] to-[#131313] select-none drop-shadow-lg"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
@@ -48,7 +30,7 @@ const NotFound = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.6, type: "spring" }}
         >
-          Page not found
+          {/* Page not found */}
         </motion.h1>
         <motion.p
           className="text-base sm:text-lg text-[#292929] text-center max-w-md"
@@ -65,7 +47,7 @@ const NotFound = () => {
         >
           <Link
             href="/"
-            className="mt-4 px-6 py-2 rounded-full"
+            className="mt-5 px-6 py-2 rounded-full"
             style={{
               backgroundColor: "#fff",
               color: "#000",

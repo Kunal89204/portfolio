@@ -43,7 +43,7 @@ const AnimatedShadow = () => (
 
 const Grid = () => {
   return (
-    <div className=" px-6 lg:px-10 max-w-[1200px] mx-auto mt-20">
+    <div className=" px-6 lg:px-10 max-w-[1200px] mx-auto mt-20 ">
       {/* First Row */}
       <div className="lg:flex gap-6 ">
         {/* Profile Gris box */}
@@ -99,28 +99,26 @@ const Grid = () => {
               style={{ minWidth: "200%" }}
             >
               <span className="px-4 text-sm lg:text-base font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                Full Stack Developer specializing in React, Node.js & MongoDB
                 &nbsp;•&nbsp;
               </span>
               <span className="px-4 text-sm lg:text-base font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                Building modern web applications with cutting-edge technologies
                 &nbsp;•&nbsp;
               </span>
               <span className="px-4 text-sm lg:text-base font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                Passionate about creating seamless user experiences
                 &nbsp;•&nbsp;
               </span>
               <span className="px-4 text-sm lg:text-base font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                Available for freelance projects and collaborations
                 &nbsp;•&nbsp;
               </span>
               <span className="px-4 text-sm lg:text-base font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                &nbsp;•&nbsp;
+                Based in India, working with clients worldwide &nbsp;•&nbsp;
               </span>
               <span className="px-4 text-sm lg:text-base font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                &nbsp;•&nbsp;
+                Let's build something amazing together &nbsp;•&nbsp;
               </span>
             </motion.div>
           </motion.div>
@@ -143,9 +141,7 @@ const Grid = () => {
                   className="absolute bottom-5 right-5 w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300"
                 />
                 <Image
-                  src={
-                    "https://wpriverthemes.com/landing/gridx-html/assets/images/sign.png"
-                  }
+                  src={"/images/sign.png"}
                   alt=""
                   width={1000}
                   height={1000}
@@ -263,19 +259,27 @@ const Grid = () => {
         >
           <div className="gray-gradient border-2 flex gap-2 p-4 justify-center rounded-[30px]">
             <div className="p-5 rounded-full gray-gradient border-2 group group-hover:bg-white transition-all duration-300 cursor-pointer">
-              <a href="https://www.linkedin.com/in/kunal-khandelwal-19a52127b/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin
-                size={40}
-                className="group-hover:text-black  relative z-10  text-white transition-all duration-300 "
-              />
+              <a
+                href="https://www.linkedin.com/in/kunal-khandelwal-19a52127b/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin
+                  size={40}
+                  className="group-hover:text-black  relative z-10  text-white transition-all duration-300 "
+                />
               </a>
             </div>
             <div className="p-5 rounded-full gray-gradient hover-bg border-2 group group-hover:bg-white  transition-all duration-300 cursor-pointer">
-              <a href="https://github.com/kunal89204" target="_blank" rel="noopener noreferrer">
-              <SiGithub
-                size={40}
-                className="group-hover:text-black group-hover:bg-white group-hover:rounded-full  relative z-10  text-white transition-all duration-300 "
-              />
+              <a
+                href="https://github.com/kunal89204"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiGithub
+                  size={40}
+                  className="group-hover:text-black group-hover:bg-white group-hover:rounded-full  relative z-10  text-white transition-all duration-300 "
+                />
               </a>
             </div>
           </div>
