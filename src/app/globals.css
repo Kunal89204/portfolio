@@ -18,6 +18,20 @@ body {
   min-height: 100vh;
 }
 
+
+body::-webkit-scrollbar{
+  display: none;
+}
+body::-moz-scrollbar{
+  display: none;
+}
+body::-ms-scrollbar{
+  display: none;
+}
+body::-o-scrollbar{
+  display: none;
+}
+
 .gray-gradient {
   position: relative;
   background: linear-gradient(120deg, #212121 -15%, #191919 58%, #131313 97%);
