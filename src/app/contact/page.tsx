@@ -19,7 +19,7 @@ const Contact = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
 
   // Handle input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,7 +38,7 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+  
 
     try {
       const response = await fetch('/api/contact', {
@@ -52,15 +52,13 @@ const Contact = () => {
       const result = await response.json();
 
       if (response.ok) {
-        setSubmitStatus('success');
         alert("Thank you! Your message has been sent successfully. I'll get back to you soon.");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setSubmitStatus('error');
         alert(result.error || "Something went wrong. Please try again.");
       }
-    } catch (error) {
-      setSubmitStatus('error');
+    } catch (error: unknown) {
+      console.error("Error submitting form:", error);
       alert("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
