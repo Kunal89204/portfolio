@@ -1,7 +1,6 @@
 import React from "react";
 import {
   SiReact,
-  SiGithub,
   SiMongodb,
   SiExpress,
   SiNodedotjs,
@@ -11,11 +10,13 @@ import {
   SiApple,
   SiWeb3dotjs,
 } from "@icons-pack/react-simple-icons";
+
 import Image from "next/image";
 import { motion } from "motion/react";
-import { FaLinkedin } from "react-icons/fa6";
+
 import { TransitionLink } from "../misc/TransitionLayout";
 import profileimg from "../../../public/profileimg.png";
+import { Github, Linkedin } from "iconoir-react";
 
 const AnimatedShadow = () => (
   <motion.div
@@ -118,13 +119,13 @@ const Grid = () => {
                 Based in India, working with clients worldwide &nbsp;•&nbsp;
               </span>
               <span className="px-4 text-sm lg:text-base font-medium">
-                Let's build something amazing together &nbsp;•&nbsp;
+                Let&apos;s build something amazing together &nbsp;•&nbsp;
               </span>
             </motion.div>
           </motion.div>
 
           <div className="sm:flex gap-6 mt-6">
-            <TransitionLink href={"/ss"} className="lg:w-1/2 w-full">
+            <TransitionLink href={"/credentials"} className="lg:w-1/2 w-full">
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -264,21 +265,22 @@ const Grid = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaLinkedin
-                  size={40}
-                  className="group-hover:text-black  relative z-10  text-white transition-all duration-300 "
+                <Linkedin
+                  fontSize={40}
+                  className="group-hover:text-blue-500  group-hover:rounded-full  relative z-10 transition-all duration-300 "
                 />
               </a>
             </div>
-            <div className="p-5 rounded-full gray-gradient hover-bg border-2 group group-hover:bg-white  transition-all duration-300 cursor-pointer">
+            <div className="p-5 rounded-full gray-gradient hover-bg border-2 group group-hover:bg-white  transition-all duration-300 cursor-pointer overflow-visible">
               <a
                 href="https://github.com/kunal89204"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SiGithub
-                  size={40}
-                  className="group-hover:text-black group-hover:bg-white group-hover:rounded-full  relative z-10  text-white transition-all duration-300 "
+                <Github
+                  className="group-hover:text-blue-500  group-hover:rounded-full  relative z-10  transition-all duration-300 "
+                  fontSize={40}
+               
                 />
               </a>
             </div>

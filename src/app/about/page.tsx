@@ -7,32 +7,9 @@ import arrow from "../../../public/arrow.png";
 import { FaLinkedin } from "react-icons/fa6";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { TransitionLink } from "@/components/misc/TransitionLayout";
+import { experience, education } from "@/lib/data";
 const About = () => {
-  const experience = [
-    {
-      date: "Jan 2024 - Sep 2024",
-      title: "Full Stack Developer",
-      company: "CodeFolder",
-    },
-    {
-      date: "Oct 2024 - Feb 2025",
-      title: "Full Stack Developer",
-      company: "YourWebsite.shop",
-    },
-  ];
-
-  const education = [
-    {
-      date: "2010-2022",
-      title: "High School",
-      institute: "Salwan Public School",
-    },
-    {
-      date: "2023-2027",
-      title: "B.Tech in Artificial Intelligence & Machine Learning",
-      institute: "GGSIPU",
-    },
-  ];
+ 
 
   return (
     <div className="max-w-[1150px] mx-auto mt-20 px-4 sm:px-6 lg:px-8">
