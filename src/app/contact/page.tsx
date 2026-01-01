@@ -1,11 +1,71 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import { Mail } from "lucide-react";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa6";
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const Contact = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Handle input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        alert("Thank you! Your message has been sent successfully. I'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus('error');
+        alert(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      alert("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const socialLinks = [
     {
       icon: <Mail size={30} />,
@@ -36,7 +96,11 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-[#505050] font-semibold">{link.label}</p>
-                <a href={link.link} target="_blank" rel="noopener noreferrer">
+                <a 
+                  href={link.label === "Mail me" ? `mailto:${link.link}` : link.link} 
+                  target={link.label === "Mail me" ? "_self" : "_blank"} 
+                  rel="noopener noreferrer"
+                >
                   {link.link}
                 </a>
               </div>
@@ -50,25 +114,41 @@ const Contact = () => {
             </h2>
           </div>
 
-          <div className="flex flex-col gap-4 py-4 mt-4 relative z-30">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-4 mt-4 relative z-30">
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="Name"
               className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4"
+              disabled={isSubmitting}
             />
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder="Email"
               className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4"
+              disabled={isSubmitting}
             />
             <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
               placeholder="Message"
               className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4 resize-none h-40"
+              disabled={isSubmitting}
             />
-            <button className="bg-[#303030] font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300 text-white rounded-lg p-4">
-              Send Message
+            <button 
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-[#303030] font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300 text-white rounded-lg p-4 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
