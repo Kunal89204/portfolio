@@ -62,11 +62,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-black via-black/90 to-black bg-no-repeat `}
       >
- 
-          <Navbar />
-          {children}
+
+        <Navbar />
+        {children}
         <Footer />
- 
+
       </body>
     </html>
   );
