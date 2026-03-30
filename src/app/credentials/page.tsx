@@ -63,14 +63,14 @@ const Credentials = () => {
     <div className="max-w-[1200px] mx-auto mt-20 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-20 items-start">
         {/* Left Sidebar - Sticky */}
-        <motion.div 
+        <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="w-full lg:w-1/3 lg:sticky lg:top-20"
         >
           <div className="rounded-[40px] bg-[#131313] p-6">
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
@@ -85,7 +85,7 @@ const Credentials = () => {
               />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
@@ -94,15 +94,15 @@ const Credentials = () => {
               <h1 className="text-2xl sm:text-3xl font-bold">Kunal Khandelwal</h1>
               <p className="text-sm sm:text-base text-[#a0a0a0]">@kunal89204</p>
 
-              <motion.div 
+              <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
                 className="flex justify-center py-6 sm:py-8"
               >
                 {socialLinks.map((link, index) => (
-                  <motion.div 
-                    key={link.label} 
+                  <motion.div
+                    key={link.label}
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.4, delay: 1 + index * 0.1, ease: "easeOut" }}
@@ -131,7 +131,7 @@ const Credentials = () => {
         </motion.div>
 
         {/* Right Content - Scrollable */}
-        <motion.div 
+        <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -144,16 +144,15 @@ const Credentials = () => {
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-xl sm:text-2xl font-bold">About Me</h2>
-            <p className="text-base sm:text-lg text-[#a0a0a0] pt-6 sm:pt-10">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ea
-              nisi ut suscipit. Repellendus est pariatur nulla veniam. Omnis
-              laborum sit veritatis alias. Enim hic deserunt officiis itaque
-              quidem nemo?
+            <p className="text-base sm:text-lg text-[#a0a0a0] pt-6 sm:pt-10 leading-6 sm:leading-7">
+              I am a software engineer with a passion for building scalable
+              and efficient systems. I am a quick learner and I am always
+              looking for new challenges.
             </p>
           </motion.div>
 
           {/* Experience */}
-          <motion.div 
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
@@ -190,7 +189,7 @@ const Credentials = () => {
           </motion.div>
 
           {/* Education */}
-          <motion.div 
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
@@ -223,7 +222,7 @@ const Credentials = () => {
           </motion.div>
 
           {/* Skills */}
-          <motion.div 
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.6, ease: "easeOut" }}
@@ -233,7 +232,7 @@ const Credentials = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
               {skills.map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
