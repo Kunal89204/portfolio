@@ -4,75 +4,139 @@ import React from "react";
 import { motion } from "motion/react";
 const Works = () => {
   const projects = [
+    // The following projects must be kept on top in the given order
     {
-      id: 1,
       title: "Admatrica",
       category: "Freelance",
       image: "/images/works/admatrica.png",
-      url: "https://admatrica.at",
+      url: "https://admatrica.at/",
     },
     {
-      id: 2,
+      title: "Codefolder",
+      category: "Personal",
+      image: "/images/works/codefolder.png",
+      url: "https://codefolder.vercel.app/",
+    },
+    {
+      title: "Envesty",
+      category: "Freelance",
+      image: "/images/works/envesty.png",
+      url: "https://www.envesty.in/",
+    },
+    {
       title: "Rent for Reel",
       category: "Freelance",
       image: "/images/works/r4r.png",
-      url: "https://rentforreel.in",
+      url: "https://www.rentforreel.in/",
     },
     {
-      id: 3,
+      title: "Tvideo",
+      category: "Personal",
+      image: "/images/works/tvideo.png",
+      url: "https://tvideo.kunalkhandelwal.dev/",
+    },
+    {
+      title: "StudyByU",
+      category: "Freelance",
+      image: "/images/works/studybyu.png",
+      url: "https://studybyu.com/",
+    },
+    {
+      title: "QuantumWhale",
+      category: "Freelance",
+      image: "/images/works/qw.png",
+      url: "https://thequantumwhale.com/",
+    },
+    // Rest of the projects (order does not matter, keeping original order below, minus the ones just listed)
+    {
+      title: "AraBazaar",
+      category: "Freelance",
+      image: "/images/works/arabazaar.png",
+      url: "https://arabazaar.com/",
+    },
+    {
+      title: "Gymverse Assignment",
+      category: "Personal",
+      image: "/images/works/gymverse.png",
+      url: "https://gymverseassignment.vercel.app/",
+    },
+    {
+      title: "Camio PPF",
+      category: "Freelance",
+      image: "/images/works/camio.png",
+      url: "https://camioppf.com/",
+    },
+    {
       title: "Quiro",
       category: "Freelance",
       image: "/images/works/quiro.png",
       url: "https://quiro-prod.vercel.app/",
     },
     {
-      id: 4,
-      title: "Tatsat Yoga School",
-      category: "Freelance",
-      image: "/images/works/tatsat.png",
-      url: "https://www.tatsatyogaschool.org",
-    },
-    {
-      id: 5,
-      title: "Tvideo",
-      category: "Personal",
-      image: "/images/works/tvideo.png",
-      url: "https://tvideo.kunalkhandelwal.dev",
-    },
-    {
-      id: 6,
-      title: "QuantumWhale",
-      category: "Freelance",
-      image: "/images/works/qw.png",
-      url: "https://thequantumwhale.com",
-    },
-    {
-      id: 7,
       title: "MACH Visuals",
       category: "Freelance",
       image: "/images/works/mach.png",
-      url: "https://machvisuals.com",
+      url: "https://machvisuals.com/",
     },
     {
-      id: 8,
-      title: "Camio PPF",
+      title: "Tatsat Yoga School",
       category: "Freelance",
-      image: "/images/works/camio.png",
-      url: "https://camioppf.com",
+      image: "/images/works/tatsat.png",
+      url: "https://www.tatsatyogaschool.org/",
     },
     {
-      id: 9,
-      title: "StudyByU",
-      category: "Freelance",
-      image: "/images/works/studybyu.png",
-      url: "https://studybyu.com",
-    },
-    {
-      id: 10,
       title: "VisionSphere",
       category: "Freelance",
       image: "/images/works/vs.png",
-      url: "https://visionsphere361.com",
+      url: "https://www.visionsphere361.com/",
+    },
+    // {
+    //   title: "Dot-com",
+    //   category: "Personal",
+    //   image: "/images/works/dot-com.png",
+    //   url: "https://dot-com.vercel.app/",
+    // },
+    {
+      title: "MLAH",
+      category: "Freelance",
+      image: "/images/works/mulah.png",
+      url: "https://www.xn--mlah-0ra.com/",
+    },
+    {
+      title: "CAA Beige",
+      category: "Freelance",
+      image: "/images/works/caa.png",
+      url: "https://caa-beige.vercel.app/",
+    },
+    {
+      title: "Markzenip",
+      category: "Freelance",
+      image: "/images/works/markzenip.png",
+      url: "https://markzenip.com/",
+    },
+    {
+      title: "TextureMaps",
+      category: "Freelance",
+      image: "/images/works/texturemaps.png",
+      url: "https://www.texturemaps.co.in/",
+    },
+    {
+      title: "Altique Silk",
+      category: "Freelance",
+      image: "/images/works/altique.png",
+      url: "https://altique-silk.vercel.app/",
+    },
+    {
+      title: "Conscious India",
+      category: "Freelance",
+      image: "/images/works/mvp.png",
+      url: "https://conscious-india.vercel.app/",
+    },
+    {
+      title: "Bhashabandhu",
+      category: "Freelance",
+      image: "/images/works/bhashabandhu.png",
+      url: "https://www.bhashabandhu.com/",
     },
   ];
 
@@ -90,7 +154,7 @@ const Works = () => {
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="flex   justify-center gap-2 mb-6"
+          className="flex justify-center gap-2 mb-6"
         >
           <Image
             src={
@@ -135,9 +199,8 @@ const Works = () => {
                 </p>
                 <h3 className="text-xl font-semibold">{project.title}</h3>
               </div>
-
               {/* Absolute Arrow image */}
-              <a href={project.url} target="_blank">
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
                 <Image
                   src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                   alt=""
@@ -153,7 +216,7 @@ const Works = () => {
 
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-3 gap-4">
-        <div className="flex flex-col gap-4 col-span-1 ">
+        <div className="flex flex-col gap-4 col-span-1">
           {col1Projects.map((project, i) => (
             <motion.div
               key={i}
@@ -175,9 +238,8 @@ const Works = () => {
                 </p>
                 <h3 className="text-2xl font-semibold">{project.title}</h3>
               </div>
-
               {/* Absolute Arrow image */}
-              <a href={project.url} target="_blank">
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
                 <Image
                   src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                   alt=""
@@ -190,7 +252,7 @@ const Works = () => {
           ))}
         </div>
 
-        <div className="col-span-2 ">
+        <div className="col-span-2">
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -242,10 +304,8 @@ const Works = () => {
                   </p>
                   <h3 className="text-2xl font-semibold">{project.title}</h3>
                 </div>
-
                 {/* Absolute Arrow image */}
-                <a href={project.url} target="_blank">
-                  {" "}
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
                   <Image
                     src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                     alt=""
@@ -277,10 +337,8 @@ const Works = () => {
                   </p>
                   <h3 className="text-2xl font-semibold">{project.title}</h3>
                 </div>
-
                 {/* Absolute Arrow image */}
-                <a href={project.url} target="_blank">
-                  {" "}
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
                   <Image
                     src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                     alt=""
