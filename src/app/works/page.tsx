@@ -124,7 +124,7 @@ const Works = () => {
       title: "Altique Silk",
       category: "Freelance",
       image: "/images/works/altique.png",
-      url: "https://altique-silk.vercel.app/",
+      url: "https://altique.in/",
     },
     {
       title: "Conscious India",
