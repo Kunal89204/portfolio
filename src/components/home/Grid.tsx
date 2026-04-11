@@ -49,13 +49,13 @@ const Grid = () => {
       <div className="lg:flex gap-6 ">
         {/* Profile Grid box */}
         <TransitionLink href={"/about"} className="lg:w-1/2 w-full ">
-        <motion.div
-  initial={{ scale: 0.5, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-  style={{ willChange: "transform, opacity" }}
-  className="sm:flex sm:justify-start relative border items-center min-h-[260px] h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300"
->
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            style={{ willChange: "transform, opacity" }}
+            className="sm:flex sm:justify-start relative border items-center min-h-[260px] h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300"
+          >
             <Image
               src={
                 "https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
@@ -288,7 +288,7 @@ const Grid = () => {
                 <Github
                   className="group-hover:text-blue-500  group-hover:rounded-full  relative z-10  transition-all duration-300 "
                   fontSize={40}
-               
+
                 />
               </a>
             </div>

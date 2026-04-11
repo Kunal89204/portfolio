@@ -118,18 +118,20 @@ const BlogPostDetail = () => {
                 className="prose prose-invert prose-lg max-w-none mb-16 text-[#e0e0e0] leading-loose"
             >
                 <p>
-                    Building features at scale often feels like a balancing act. On one side, there's the
-                    pressure to deliver quickly; on the other, the need to maintain a codebase that doesn't
-                    turn into a legacy nightmare in three months.
+                    Building features at scale often feels like a balancing act. On one side, there
+                    {"'"}s the pressure to deliver quickly; on the other, the need to maintain a codebase
+                    that doesn{"'"}t turn into a legacy nightmare in three months.
                 </p>
                 <h2 className="text-2xl font-bold mt-10 mb-4 text-white">The Atomic Breakdown</h2>
                 <p>
-                    I've found that the secret to consistent momentum is breaking every feature down into
+                    I{"'"}ve found that the secret to consistent momentum is breaking every feature down into
                     its smallest testable pieces before a single line of code is written. This starts with
                     the data model and flows through the API contract up to the UI components.
                 </p>
                 <blockquote className="border-l-4 border-[#5b78f6] pl-6 py-2 my-10 italic text-[#a0a0a0]">
-                    "Velocity is high speed in a specific direction. Without direction, you just have noise."
+                    {
+                        '"Velocity is high speed in a specific direction. Without direction, you just have noise."'
+                    }
                 </blockquote>
                 <p>
                     When you have a clear API contract, the frontend and backend can progress in parallel.
@@ -138,7 +140,7 @@ const BlogPostDetail = () => {
                 </p>
                 <h2 className="text-2xl font-bold mt-10 mb-4 text-white">UI Refinement</h2>
                 <p>
-                    Polish isn't something you add at the end; it's a habit you maintain throughout the
+                    Polish isn{"'"}t something you add at the end; it{"'"}s a habit you maintain throughout the
                     process. By using a consistent design system and component primitives, we can build
                     complex interfaces that feel cohesive and premium without reinventing the wheel
                     every time we need a button.
@@ -173,7 +175,7 @@ const BlogPostDetail = () => {
                     <div className="space-y-3">
                         <h4 className="font-semibold text-white">Test Early</h4>
                         <p className="text-[#a0a0a0] text-sm leading-relaxed">
-                            Don't wait for the full feature. Verify individual logic branches frequently.
+                            Don{"'"}t wait for the full feature. Verify individual logic branches frequently.
                         </p>
                     </div>
                     <div className="space-y-3">
@@ -215,7 +217,7 @@ const BlogPostDetail = () => {
                                     <span className="text-xs text-[#606060]">2 hours ago</span>
                                 </div>
                                 <p className="text-[#a0a0a0] text-sm leading-relaxed">
-                                    Great insights on the API contract part. I've found that using Zod with
+                                    Great insights on the API contract part. I{"'"}ve found that using Zod with
                                     React Query really makes the whole stack feel solid.
                                 </p>
                             </div>
