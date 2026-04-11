@@ -47,9 +47,15 @@ const Grid = () => {
     <div className=" px-6 lg:px-10 max-w-[1200px] mx-auto mt-20 ">
       {/* First Row */}
       <div className="lg:flex gap-6 ">
-        {/* Profile Gris box */}
+        {/* Profile Grid box */}
         <TransitionLink href={"/about"} className="lg:w-1/2 w-full ">
-          <motion.div className="sm:flex sm:justify-start relative border items-center h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300">
+        <motion.div
+  initial={{ scale: 0.5, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+  style={{ willChange: "transform, opacity" }}
+  className="sm:flex sm:justify-start relative border items-center min-h-[260px] h-full cursor-pointer group gray-gradient rounded-[30px] p-6 lg:p-10 gap-6 transition-all duration-300"
+>
             <Image
               src={
                 "https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
@@ -58,6 +64,7 @@ const Grid = () => {
               className="absolute bottom-8 right-8 lg:bottom-5 lg:right-5  w-10 h-10 opacity-40 group-hover:opacity-100 transition-all duration-300 "
               width={1000}
               height={1000}
+              priority
             />
             <Image
               src={profileimg.src}
@@ -65,6 +72,7 @@ const Grid = () => {
               width={1000}
               height={1000}
               className="img-gradient w-[200px] lg:w-[50%] mx-auto sm:mx-0  rounded-tr-3xl rounded-bl-3xl z-50"
+              priority
             />
 
             <div className="z-10 mt-10">
