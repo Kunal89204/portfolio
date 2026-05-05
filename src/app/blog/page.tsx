@@ -26,6 +26,7 @@ const posts: BlogPost[] = [
       "How I break down client work—from scoping and APIs to UI polish—so delivery stays predictable.",
     date: "Apr 2025",
     readTime: "6 min read",
+    href: "/blog/shipping-full-stack-features-without-losing-momentum",
   },
   {
     tag: "Cloud",

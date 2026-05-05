@@ -269,7 +269,7 @@ const Grid = () => {
           <div className="gray-gradient border-2 flex gap-2 p-4 justify-center rounded-[30px]">
             <div className="p-5 rounded-full gray-gradient border-2 group group-hover:bg-white transition-all duration-300 cursor-pointer">
               <a
-                href="https://www.linkedin.com/in/kunal-khandelwal-19a52127b/"
+                href="https://www.linkedin.com/in/kunal89204/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

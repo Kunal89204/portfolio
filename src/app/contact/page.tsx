@@ -77,7 +77,7 @@ const Contact = () => {
     },
     {
       icon: <FaLinkedin size={30} />,
-      link: "https://www.linkedin.com/in/kunal-khandelwal-19a52127b/",
+      link: "https://www.linkedin.com/in/kunal89204/",
       label: "LinkedIn",
     },
   ];

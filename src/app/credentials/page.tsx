@@ -19,7 +19,7 @@ const Credentials = () => {
           />
         </div>
       ),
-      link: "https://www.linkedin.com/in/kunal-khandelwal-19a52127b/",
+      link: "https://www.linkedin.com/in/kunal89204/",
       label: "LinkedIn",
     },
     {
@@ -119,10 +119,16 @@ const Credentials = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+                className="flex flex-col gap-4"
               >
                 <Link href="/contact">
                   <button className="bg-[#191919] cursor-pointer hover:bg-white hover:text-black transition-all duration-300 text-white px-4 py-3 rounded-xl w-full font-semibold text-sm sm:text-base">
                     Contact Me
+                  </button>
+                </Link>
+                <Link href="/resume">
+                  <button className="bg-transparent border border-[#191919] hover:bg-[#191919] hover:text-white hover:border-white transition-all duration-300 text-white px-4 py-3 rounded-xl w-full font-semibold text-sm sm:text-base">
+                    View Resume
                   </button>
                 </Link>
               </motion.div>

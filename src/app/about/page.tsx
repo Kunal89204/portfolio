@@ -181,7 +181,7 @@ const About = () => {
             </motion.div>
           </TransitionLink>
 
-          <TransitionLink href={"/ss"} className="lg:w-1/4 w-full">
+          <TransitionLink href={"/credentials"} className="lg:w-1/4 w-full">
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

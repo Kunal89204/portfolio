@@ -40,15 +40,39 @@ export const education = [
 ];
 
 export const skills = [
-  { name: "JavaScript" },
-  { name: "React" },
+  // Core
   { name: "Node.js" },
+  { name: "TypeScript" },
+  { name: "REST APIs" },
+
+  // Frontend
+  { name: "React.js" },
+  { name: "Next.js" },
+  { name: "React Native" },
+
+  // Backend & Real-Time
+  { name: "Express.js" },
+  { name: "Nest.js" },
+  { name: "WebSockets (Socket.IO)" },
+  { name: "GraphQL" },
+
+  // Databases & Caching
   { name: "MongoDB" },
-  { name: "Express" },
-  { name: "Tailwind CSS" },
-  { name: "HTML" },
-  { name: "CSS" },
-  { name: "Git" },
-  { name: "GitHub" },
+  { name: "PostgreSQL" },
+  { name: "Redis" },
+
+  // Cloud & Infrastructure
+  { name: "AWS (EC2, S3)" },
   { name: "Docker" },
+  { name: "Firebase" },
+  { name: "Cloudinary" },
+
+  // Performance & Testing
+  { name: "Caching" },
+  { name: "Rate Limiting" },
+  { name: "Load Testing (K6)" },
+
+  // Tools
+  { name: "Git" },
+  { name: "Postman" },
 ];
