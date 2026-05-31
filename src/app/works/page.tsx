@@ -2,8 +2,29 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
+
+import { usePageView } from "@/hooks/usePageView";
+import { trackProjectClick } from "@/lib/gtag";
+
+type Project = {
+  title: string;
+  category: string;
+  image: string;
+  url: string;
+};
+
 const Works = () => {
-  const projects = [
+  usePageView("Works | Kunal Khandelwal");
+
+  const handleProjectClick = (project: Project) => {
+    trackProjectClick({
+      title: project.title,
+      category: project.category,
+      url: project.url,
+    });
+  };
+
+  const projects: Project[] = [
     // The following projects must be kept on top in the given order
     {
       title: "Admatrica",
@@ -200,7 +221,12 @@ const Works = () => {
                 <h3 className="text-xl font-semibold">{project.title}</h3>
               </div>
               {/* Absolute Arrow image */}
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleProjectClick(project)}
+              >
                 <Image
                   src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                   alt=""
@@ -239,7 +265,12 @@ const Works = () => {
                 <h3 className="text-2xl font-semibold">{project.title}</h3>
               </div>
               {/* Absolute Arrow image */}
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleProjectClick(project)}
+              >
                 <Image
                   src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                   alt=""
@@ -305,7 +336,12 @@ const Works = () => {
                   <h3 className="text-2xl font-semibold">{project.title}</h3>
                 </div>
                 {/* Absolute Arrow image */}
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleProjectClick(project)}
+              >
                   <Image
                     src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                     alt=""
@@ -338,7 +374,12 @@ const Works = () => {
                   <h3 className="text-2xl font-semibold">{project.title}</h3>
                 </div>
                 {/* Absolute Arrow image */}
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleProjectClick(project)}
+              >
                   <Image
                     src="https://wpriverthemes.com/gridx/wp-content/themes/gridx/assets/images/icon.svg"
                     alt=""

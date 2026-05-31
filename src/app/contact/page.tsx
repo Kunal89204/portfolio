@@ -5,6 +5,13 @@ import { Mail } from "lucide-react";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa6";
 
+import { usePageView } from "@/hooks/usePageView";
+import {
+  trackContactForm,
+  trackSocialClick,
+  type SocialPlatform,
+} from "@/lib/gtag";
+
 interface FormData {
   name: string;
   email: string;
@@ -12,12 +19,14 @@ interface FormData {
 }
 
 const Contact = () => {
+  usePageView("Contact | Kunal Khandelwal");
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
 
@@ -31,14 +40,14 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      trackContactForm({ status: "validation_error" });
       alert("Please fill in all fields");
       return;
     }
 
     setIsSubmitting(true);
-  
+    trackContactForm({ status: "attempt" });
 
     try {
       const response = await fetch('/api/contact', {
@@ -52,35 +61,51 @@ const Contact = () => {
       const result = await response.json();
 
       if (response.ok) {
+        trackContactForm({ status: "success" });
         alert("Thank you! Your message has been sent successfully. I'll get back to you soon.");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        alert(result.error || "Something went wrong. Please try again.");
+        const errorMessage = result.error || "Something went wrong. Please try again.";
+        trackContactForm({ status: "server_error", errorMessage });
+        alert(errorMessage);
       }
     } catch (error: unknown) {
       console.error("Error submitting form:", error);
+      trackContactForm({ status: "network_error" });
       alert("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
-  const socialLinks = [
+  const socialLinks: {
+    icon: React.ReactNode;
+    link: string;
+    label: string;
+    platform: SocialPlatform;
+  }[] = [
     {
       icon: <Mail size={30} />,
       link: "me@kunalkhandelwal.dev",
       label: "Mail me",
+      platform: "email",
     },
     {
       icon: <BsGithub size={30} />,
       link: "https://github.com/kunal89204",
       label: "GitHub",
+      platform: "github",
     },
     {
       icon: <FaLinkedin size={30} />,
       link: "https://www.linkedin.com/in/kunal89204/",
       label: "LinkedIn",
+      platform: "linkedin",
     },
   ];
+
+  const handleSocialClick = (platform: SocialPlatform, url: string) => {
+    trackSocialClick(platform, url);
+  };
   return (
     <div className="px-6 lg:px-4  max-w-[1200px] mx-auto mt-20 flex flex-col items-center">
       <div className="flex gap-20 w-full mt-14">
@@ -94,10 +119,16 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-[#505050] font-semibold">{link.label}</p>
-                <a 
-                  href={link.label === "Mail me" ? `mailto:${link.link}` : link.link} 
-                  target={link.label === "Mail me" ? "_self" : "_blank"} 
+                <a
+                  href={link.label === "Mail me" ? `mailto:${link.link}` : link.link}
+                  target={link.label === "Mail me" ? "_self" : "_blank"}
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    handleSocialClick(
+                      link.platform,
+                      link.label === "Mail me" ? `mailto:${link.link}` : link.link
+                    )
+                  }
                 >
                   {link.link}
                 </a>
