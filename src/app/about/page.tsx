@@ -64,7 +64,7 @@ const About = () => {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="gray-gradient-2 border p-6 sm:p-8 lg:p-10 rounded-3xl pt-20 sm:pt-28 lg:pt-36 relative"
+              className="gray-gradient-2 border p-6 sm:p-8 lg:p-10 rounded-3xl pt-20 sm:pt-28 lg:pt-24 relative"
             >
               <Image
                 src={arrow}
@@ -77,9 +77,7 @@ const About = () => {
                 Kunal Khandelwal
               </h1>
               <p className="text-base sm:text-lg pt-2 leading-6 sm:leading-7">
-                I am a software engineer with a passion for building scalable
-                and efficient systems. I am a quick learner and I am always
-                looking for new challenges.
+              Full stack developer focused on building real products and solving complex problems. Strong in debugging, system integration, rapid learning, and leveraging AI responsibly to accelerate development without compromising engineering quality.
               </p>
             </motion.div>
           </div>

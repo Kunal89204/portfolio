@@ -9,7 +9,7 @@ export const experience = [
   {
     date: "Oct 2024 - Feb 2025",
     title: "Full Stack Developer",
-    company: "YourWebsite.shop",
+    company: "Build In Bharat",
     description:
       "Worked at a web development agency on client websites and web apps end to end: responsive front ends, CMS and API integrations, and deployment. Collaborated with designers and stakeholders, iterated on feedback, and kept projects maintainable and performant.",
   },

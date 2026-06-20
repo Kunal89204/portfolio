@@ -151,9 +151,7 @@ const Credentials = () => {
           >
             <h2 className="text-xl sm:text-2xl font-bold">About Me</h2>
             <p className="text-base sm:text-lg text-[#a0a0a0] pt-6 sm:pt-10 leading-6 sm:leading-7">
-              I am a software engineer with a passion for building scalable
-              and efficient systems. I am a quick learner and I am always
-              looking for new challenges.
+            Full stack developer focused on building real products and solving complex problems. Strong in debugging, system integration, rapid learning, and leveraging AI responsibly to accelerate development without compromising engineering quality.
             </p>
           </motion.div>
 
