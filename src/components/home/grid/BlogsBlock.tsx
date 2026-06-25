@@ -6,7 +6,7 @@ import GridIcon from "./GridIcon";
 import { gridEnterMotion } from "./constants";
 
 const BlogsBlock = () => (
-  <TransitionLink href="/" className=" lg:w-1/4 w-full">
+  <TransitionLink href="/blog" className=" lg:w-1/4 w-full">
     <motion.div
       {...gridEnterMotion}
       className="relative  gray-gradient border group rounded-[30px] p-4 lg:aspect-[1/0.9]"

@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { BookOpen, Brain, Calendar, Clock, MoveLeft } from "lucide-react";
 
 import { TransitionLink } from "@/components/misc/TransitionLayout";
+import { usePageView } from "@/hooks/usePageView";
 import type { BlogFrontmatter } from "@/lib/blog";
 
 type BlogPostDetailProps = {
@@ -18,6 +19,8 @@ const BlogPostDetail = ({
   image,
   children,
 }: BlogPostDetailProps) => {
+  usePageView(`${frontmatter.title} | Blog | Kunal Khandelwal`);
+
   return (
     <div className="min-h-screen max-w-[1200px] mx-auto mt-20 px-4 sm:px-6 lg:px-8 pb-20">
       <motion.div

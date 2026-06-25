@@ -7,6 +7,7 @@ interface TransitionLinkProps extends LinkProps {
   children: React.ReactNode;
   href: string;
   className?: string;
+  onNavigate?: () => void;
 }
 
 function sleep(ms: number): Promise<void> {
@@ -17,6 +18,7 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
   children,
   href,
   className,
+  onNavigate,
   ...props
 }) => {
   const router = useRouter();
@@ -25,6 +27,7 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     e.preventDefault();
+    onNavigate?.();
     const body = document.querySelector("body");
 
     // Add transition class (this triggers shutter down)

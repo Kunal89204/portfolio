@@ -5,7 +5,9 @@ import { motion } from "motion/react";
 import { ArrowUpRight, Building2, Globe, Layers, MoveLeft } from "lucide-react";
 
 import { TransitionLink } from "@/components/misc/TransitionLayout";
+import { usePageView } from "@/hooks/usePageView";
 import type { ProjectFrontmatter } from "@/lib/project";
+import { trackProjectWebsiteClick } from "@/lib/gtag";
 
 type ProjectDetailProps = {
   frontmatter: ProjectFrontmatter;
@@ -14,6 +16,8 @@ type ProjectDetailProps = {
 };
 
 const ProjectDetail = ({ frontmatter, image, children }: ProjectDetailProps) => {
+  usePageView(`${frontmatter.title} | Works | Kunal Khandelwal`);
+
   return (
     <div className="min-h-screen max-w-[1000px] mx-auto mt-20 px-4 sm:px-6 lg:px-8 pb-20">
       <motion.div
@@ -57,6 +61,13 @@ const ProjectDetail = ({ frontmatter, image, children }: ProjectDetailProps) => 
               href={frontmatter.website}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackProjectWebsiteClick({
+                  title: frontmatter.title,
+                  url: frontmatter.website,
+                  location: "project_detail",
+                })
+              }
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#303030] gray-gradient-2 text-sm font-medium hover:border-[#5b78f6]/40 hover:text-[#5b78f6] transition-colors group"
             >
               <Globe className="w-4 h-4" />

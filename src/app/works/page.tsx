@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 
 import { usePageView } from "@/hooks/usePageView";
-import { trackProjectClick } from "@/lib/gtag";
+import { trackCaseStudyClick, trackProjectClick } from "@/lib/gtag";
 import Link from "next/link";
 import { Project, projects } from "@/lib/data";
 
@@ -14,6 +14,16 @@ import { Project, projects } from "@/lib/data";
 
 const Works = () => {
   usePageView("Works | Kunal Khandelwal");
+
+  const handleCaseStudyClick = (project: Project) => {
+    if (!project.slug) return;
+
+    trackCaseStudyClick({
+      title: project.title,
+      slug: project.slug,
+      category: project.category,
+    });
+  };
 
   const handleProjectClick = (project: Project) => {
     trackProjectClick({
@@ -115,7 +125,20 @@ const Works = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
             >
-              <Link href={`/works/${project.slug}`}>
+              {project.slug ? (
+                <Link
+                  href={`/works/${project.slug}`}
+                  onClick={() => handleCaseStudyClick(project)}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1000}
+                    height={1000}
+                    className="rounded-[24px] aspect-[1/0.7] object-cover"
+                  />
+                </Link>
+              ) : (
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -123,7 +146,7 @@ const Works = () => {
                   height={1000}
                   className="rounded-[24px] aspect-[1/0.7] object-cover"
                 />
-              </Link>
+              )}
               <div className="flex flex-col gap-1 py-2">
                 <p className="text-[#a0a0a0] text-md font-semibold">
                   {project.category}
@@ -188,7 +211,20 @@ const Works = () => {
                 transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                 className="gray-gradient-2 border rounded-[30px] p-4 relative group cursor-pointer"
               >
-                <Link href={`/works/${project.slug ?? ""}`}>
+                {project.slug ? (
+                  <Link
+                    href={`/works/${project.slug}`}
+                    onClick={() => handleCaseStudyClick(project)}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={1000}
+                      height={1000}
+                      className="rounded-[24px] aspect-[1/0.8] object-cover"
+                    />
+                  </Link>
+                ) : (
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -196,7 +232,7 @@ const Works = () => {
                     height={1000}
                     className="rounded-[24px] aspect-[1/0.8] object-cover"
                   />
-                </Link>
+                )}
                 <div className="flex flex-col gap-1 py-2">
                   <p className="text-[#a0a0a0] text-md font-semibold">
                     {project.category}

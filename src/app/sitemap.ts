@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getBlogLastModified, getBlogSlugs } from "@/lib/blog";
+import { getBlogLastModified, getPublishedBlogSlugs } from "@/lib/blog";
 import { getProjectLastModified, getProjectSlugs } from "@/lib/project";
 import { SITE_URL } from "@/lib/site";
 
@@ -53,12 +53,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = getBlogSlugs().map((slug) => ({
-    url: `${SITE_URL}/blog/${slug}`,
-    lastModified: getBlogLastModified(slug) ?? lastModified,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  const blogPages: MetadataRoute.Sitemap = getPublishedBlogSlugs().map(
+    (slug) => ({
+      url: `${SITE_URL}/blog/${slug}`,
+      lastModified: getBlogLastModified(slug) ?? lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
 
   return [...staticPages, ...projectPages, ...blogPages];
 }

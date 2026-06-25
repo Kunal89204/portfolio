@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 
+import { usePageView } from "@/hooks/usePageView";
 import { TransitionLink } from "@/components/misc/TransitionLayout";
 import type { BlogFrontmatter } from "@/lib/blog";
+import { trackBlogPostClick } from "@/lib/gtag";
 
 const STAR_SRC =
   "https://wpriverthemes.com/landing/gridx-html/assets/images/star-2.png";
@@ -28,6 +30,13 @@ function PostCard({
     >
       <TransitionLink
         href={`/blog/${post.slug}`}
+        onNavigate={() =>
+          trackBlogPostClick({
+            title: post.title,
+            slug: post.slug,
+            tag: post.tag,
+          })
+        }
         className="block gray-gradient-2 border rounded-[30px] p-6 sm:p-8 relative group h-full flex flex-col cursor-pointer hover:border-[#303030] transition-colors"
       >
         <p className="text-[#a0a0a0] text-sm font-semibold uppercase tracking-wide">
@@ -50,6 +59,8 @@ function PostCard({
 }
 
 export default function BlogListing({ posts }: BlogListingProps) {
+  usePageView("Blog | Kunal Khandelwal");
+
   return (
     <div className="min-h-screen max-w-[1150px] mx-auto mt-20 px-4 sm:px-6 lg:px-8 pb-16">
       <motion.div

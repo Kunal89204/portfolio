@@ -111,3 +111,43 @@ export const trackProjectClick = (params: {
     category: params.category,
   });
 };
+
+export const trackCaseStudyClick = (params: {
+  title: string;
+  slug: string;
+  category: string;
+}) => {
+  sendEvent("select_content", {
+    content_type: "case_study",
+    item_id: params.slug,
+    item_name: params.title,
+    project_category: params.category,
+    location: "works_page",
+  });
+};
+
+export const trackBlogPostClick = (params: {
+  title: string;
+  slug: string;
+  tag: string;
+}) => {
+  sendEvent("select_content", {
+    content_type: "blog_post",
+    item_id: params.slug,
+    item_name: params.title,
+    article_section: params.tag,
+    location: "blog_page",
+  });
+};
+
+export const trackProjectWebsiteClick = (params: {
+  title: string;
+  url: string;
+  location?: string;
+}) => {
+  trackOutboundLink({
+    url: params.url,
+    linkText: `${params.title} — visit website`,
+    location: params.location ?? "project_detail",
+  });
+};

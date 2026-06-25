@@ -92,6 +92,14 @@ export function getBlog(slug: string) {
   };
 }
 
+export function getPublishedBlogSlugs(): string[] {
+  return getBlogSlugs()
+    .map((fileSlug) => getBlog(fileSlug))
+    .filter((post): post is NonNullable<typeof post> => post !== null)
+    .filter((post) => post.frontmatter.published !== false)
+    .map((post) => post.frontmatter.slug);
+}
+
 export function getAllBlogPosts(): BlogFrontmatter[] {
   return getBlogSlugs()
     .map((slug) => getBlog(slug))
