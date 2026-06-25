@@ -8,19 +8,37 @@ export type ProjectFrontmatter = {
   title: string;
   slug: string;
   category: string;
+  description: string;
   client: string;
   website: string;
   image?: string;
   stack: string[];
 };
 
-export function getProjectSlugs() {
+function buildFallbackDescription(
+  title: string,
+  category: string
+): string {
+  return `${category} case study for ${title} — full stack development work by Kunal Khandelwal.`;
+}
+
+export function getProjectSlugs(): string[] {
   if (!fs.existsSync(projectsDirectory)) return [];
 
   return fs
     .readdirSync(projectsDirectory)
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => file.replace(/\.mdx$/, ""));
+}
+
+export function getProjectLastModified(slug: string): Date | undefined {
+  const filePath = path.join(projectsDirectory, `${slug}.mdx`);
+
+  if (!fs.existsSync(filePath)) {
+    return undefined;
+  }
+
+  return fs.statSync(filePath).mtime;
 }
 
 export function getProject(slug: string) {
@@ -34,17 +52,21 @@ export function getProject(slug: string) {
   const { data, content } = matter(fileContent);
 
   const frontmatter = data as Partial<ProjectFrontmatter>;
+  const title = frontmatter.title ?? slug;
+  const category = frontmatter.category ?? "Project";
 
   return {
     frontmatter: {
-      title: frontmatter.title ?? slug,
+      title,
       slug: frontmatter.slug ?? slug,
-      category: frontmatter.category ?? "Project",
-      client: frontmatter.client ?? frontmatter.title ?? slug,
+      category,
+      description:
+        frontmatter.description ?? buildFallbackDescription(title, category),
+      client: frontmatter.client ?? title,
       website: frontmatter.website ?? "",
       image: frontmatter.image,
       stack: frontmatter.stack ?? [],
-    },
+    } satisfies ProjectFrontmatter,
     content,
   };
 }
