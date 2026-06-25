@@ -45,14 +45,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projectPages: MetadataRoute.Sitemap = projects.map(
-    (project) => ({
-      url: `${baseUrl}/works/${project.slug}`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    })
-  );
+  const projectPages = projects
+  .filter((project) => project.slug)
+  .map((project) => ({
+    url: `${baseUrl}/works/${project.slug}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   return [...staticPages, ...projectPages];
 }
