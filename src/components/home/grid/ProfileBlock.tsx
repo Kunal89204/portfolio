@@ -28,8 +28,9 @@ const ProfileBlock = () => (
           A Full Stack Developer
         </p>
         <h2 className="text-4xl font-semibold">Kunal Khandelwal</h2>
-        <p className="py-4 text-[#a0a0a0] ">
-          I am a full stack developer based in India.
+        <p className="py-4 text-sm text-[#a0a0a0] ">
+        Building scalable web applications with
+        React, Next.js, NestJS, PostgreSQL and Docker.
         </p>
       </div>
     </motion.div>
