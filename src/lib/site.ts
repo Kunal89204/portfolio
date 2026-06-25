@@ -10,6 +10,8 @@ export const PERSON_JSON_LD = {
   name: "Kunal Khandelwal",
   url: SITE_URL,
   image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+  description:
+    "Full Stack Developer specializing in Next.js, React, Node.js, PostgreSQL, Docker, cloud infrastructure, and scalable web and mobileapplications.",
   jobTitle: "Full Stack Developer",
   sameAs: [
     "https://github.com/kunal89204",
@@ -20,13 +22,20 @@ export const PERSON_JSON_LD = {
   knowsAbout: [
     "Next.js",
     "React",
-    "Node.js",
     "TypeScript",
+    "Node.js",
+    "Express.js",
+    "NestJS",
+    "PostgreSQL",
     "MongoDB",
+    "Redis",
+    "Docker",
     "AWS",
-    "GCP",
-    "Web Development",
+    "Coolify",
+    "WebSocket Development",
     "Full Stack Development",
+    "Cloud Infrastructure",
+    "SaaS Development",
   ],
 };
 

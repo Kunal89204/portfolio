@@ -1,0 +1,156 @@
+---
+title: How I Learned Plaid While Building a Finance Application
+slug: integrating-plaid-in-production
+tag: Engineering
+description: My experience learning Plaid while working on a real fintech project, from understanding bank connections to fetching transaction data.
+date: 2026-06-25
+dateLabel: June 25, 2026
+readTime: 8 min read
+image: /plaid.png
+published: true
+---
+# How I Learned Plaid While Building a Finance Application
+
+Before working on a fintech application for a client, I had never heard of Plaid.
+
+Like most web developers, I was comfortable working with REST APIs, authentication systems, databases, and payment gateways. Connecting directly to a user's bank account felt like an entirely different world.
+
+This project became my introduction to financial infrastructure and helped me understand how modern finance applications securely access banking data.
+
+## What Is Plaid?
+
+Plaid is a financial technology platform that allows applications to connect with users' bank accounts.
+
+Instead of manually uploading statements or entering transaction data, users can securely link their bank accounts through Plaid. Once connected, applications can access information such as:
+
+* Account balances
+* Transaction history
+* Account details
+* Identity information
+
+One thing I learned early was that Plaid is heavily focused on the United States banking ecosystem. While support exists for some other regions, most of its products and integrations are designed around US financial institutions.
+
+This was one of the reasons our client decided to use Plaid for their application.
+
+## My First Misunderstanding
+
+When I first started reading the documentation, I assumed Plaid was simply another API.
+
+I thought the flow would look something like:
+
+```ts
+const transactions = await getTransactions();
+```
+
+and everything would magically work.
+
+It turned out the process was much more structured.
+
+Users must first authorize access to their bank account through Plaid's interface. Once the connection is established, the application receives permission to access specific financial data.
+
+Understanding this workflow was probably the biggest hurdle in the beginning.
+
+## Understanding the Plaid Flow
+
+The entire process can be simplified into a few steps:
+
+1. The backend creates a Link Token.
+2. The frontend opens Plaid Link.
+3. The user selects and connects their bank.
+4. Plaid returns a Public Token.
+5. The backend exchanges that token for an Access Token.
+6. The application can now retrieve financial data.
+
+A simplified example looked like:
+
+```ts
+const response = await plaidClient.linkTokenCreate({
+  user: {
+    client_user_id: userId,
+  },
+  client_name: "Finance App",
+  products: ["transactions"],
+  country_codes: ["US"],
+  language: "en",
+});
+```
+
+The returned Link Token is then used to launch Plaid's secure connection flow.
+
+## Sandbox vs Production
+
+One important part of the process that I did not fully appreciate at the beginning was the difference between Plaid's sandbox and production environments.
+
+Initially, I worked entirely with the sandbox APIs. This allowed me to simulate bank connections, test transaction flows, and understand how the system behaved without dealing with real financial data.
+
+However, moving to production was not as simple as switching an environment variable.
+
+Plaid requires approval before granting production access. This involves submitting details about the application, its use case, and how financial data will be handled.
+
+Most of the communication with Plaid during this approval process was handled by the client, but it gave me insight into how seriously financial platforms treat security and compliance.
+
+Once production access was granted, the same flows applied, but now everything was connected to real user data, which added an extra layer of responsibility.
+
+## The Part That Finally Made Sense
+
+For me, the breakthrough happened when I stopped thinking about Plaid as a banking API and started thinking about it as a permission system.
+
+Banks do not simply hand over financial data to random applications.
+
+Users must explicitly authorize access.
+
+Plaid acts as the bridge between the application and the bank, handling the authentication process and returning data in a consistent format.
+
+Once I understood that concept, the rest of the documentation became much easier to follow.
+
+## Working With Transactions
+
+The main requirement for our client project was accessing transaction data.
+
+After a user connected their bank account, we could retrieve information such as:
+
+* Transaction amount
+* Merchant name
+* Transaction date
+* Account information
+
+A simplified example looked like:
+
+```ts
+const transactions =
+  await plaidClient.transactionsGet({
+    access_token,
+    start_date,
+    end_date,
+  });
+```
+
+Of course, the actual implementation involved additional validation and database storage, but the concept was surprisingly straightforward once the authentication flow was understood.
+
+## What I Learned
+
+The biggest lesson from working with Plaid was that financial software is very different from traditional web applications.
+
+With a normal application, a bug might cause a UI issue or a failed request.
+
+With financial applications, users expect accuracy, reliability, and trust.
+
+Even small mistakes can have a much larger impact because real financial information is involved.
+
+The project also taught me:
+
+* How bank account linking works
+* Token-based authorization flows
+* Financial data synchronization
+* Fintech product requirements
+* The importance of handling sensitive data responsibly
+
+## Final Thoughts
+
+Learning Plaid was one of the more interesting experiences in my development journey because it introduced me to a completely different domain.
+
+It was not just about calling APIs. It was about understanding how financial systems, user permissions, and banking infrastructure work together.
+
+Looking back, the technical implementation was only part of the challenge. The bigger lesson was understanding the business and security requirements that come with building financial products.
+
+For any developer interested in fintech, Plaid is a great place to start because it provides a practical introduction to how modern applications connect with the banking world.
