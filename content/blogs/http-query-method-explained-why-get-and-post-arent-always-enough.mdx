@@ -1,0 +1,120 @@
+---
+title: Why GET and POST Aren't Always Enough Understanding the new HTTP QUERY Method
+slug: http-query-method-explained-why-get-and-post-arent-always-enough
+tag: Engineering
+description: Why complex API searches outgrow GET query strings, why POST is a semantic workaround, and how the HTTP QUERY method bridges the gap for safe, body-bearing read operations.
+date: 2026-07-08
+dateLabel: July 8, 2026
+readTime: 6 min read
+image: /httpquery.png
+published: true
+---
+
+# Why the HTTP QUERY Method Exists
+
+When building REST APIs, most developers naturally reach for either `GET` or `POST`.
+
+For simple requests, `GET` works perfectly.
+
+```http
+GET /products?category=laptops&page=1
+```
+
+The URL clearly describes what we want, and because the request is read only, using `GET` communicates the correct intent.
+
+But as applications grow, so do the search requirements.
+
+Imagine allowing users to filter products by multiple categories, brands, price ranges, ratings, availability, sorting options, and dozens of other criteria.
+
+Suddenly, your URL starts looking something like this:
+
+```http
+GET /products?category=laptops&brands=dell,lenovo,hp&minPrice=500&maxPrice=1500&rating=4&sort=price&page=2&availability=in-stock...
+```
+
+It quickly becomes difficult to read, maintain, and extend.
+
+## The Problem With GET
+
+Unlike `POST`, a `GET` request does not define a request body.
+
+That means every piece of information must be encoded into the URL as query parameters.
+
+While the HTTP specification does not define a strict maximum URL length, browsers, servers, proxies, and load balancers often impose practical limits. A commonly accepted safe limit is around **8,000 characters**, although some systems allow much less.
+
+For simple searches, this isn't a problem.
+
+For complex filtering, advanced search builders, analytics dashboards, or GraphQL-like query structures, it quickly becomes a real limitation.
+
+## Why Not Just Use POST?
+
+This is exactly what many APIs do today.
+
+Instead of sending a long URL, they send the search criteria inside the request body.
+
+```http
+POST /products/search
+Content-Type: application/json
+
+{
+  "brands": ["Dell", "Lenovo"],
+  "price": {
+    "min": 500,
+    "max": 1500
+  },
+  "rating": 4
+}
+```
+
+Technically, this works.
+
+Semantically, however, it isn't ideal.
+
+One of the core ideas behind HTTP is that **methods communicate intent**.
+
+A `GET` request tells everyone, including browsers, proxies, caches, and other developers, that the operation is safe and does not modify server state.
+
+A `POST` request, on the other hand, is generally associated with creating resources or performing operations that may have side effects.
+
+Even if your endpoint is only performing a search, using `POST` makes it harder to communicate that intent.
+
+In other words, we're not using `POST` because it represents the operation correctly. We're using it because `GET` cannot carry the request we want to send.
+
+## Enter the HTTP QUERY Method
+
+The HTTP `QUERY` method was introduced to solve exactly this problem.
+
+It combines the best parts of both approaches.
+
+Like `GET`, it represents a safe, read only operation.
+
+Like `POST`, it allows sending a request body.
+
+```http
+QUERY /products
+Content-Type: application/json
+
+{
+  "brands": ["Dell", "Lenovo"],
+  "price": {
+    "min": 500,
+    "max": 1500
+  },
+  "rating": 4,
+  "sort": "price"
+}
+```
+
+The request remains expressive, structured, and easy to extend without forcing complex filters into the URL.
+
+More importantly, the HTTP method itself accurately communicates the intent of the operation.
+
+## Should You Use It Today?
+
+Probably not, at least not in most production systems.
+
+The `QUERY` method is still relatively new and has not yet seen widespread adoption across browsers, frameworks, API gateways, proxies, and HTTP clients.
+
+For now, most APIs continue to use `GET` for simple retrieval and `POST` for complex searches.
+
+Even so, the `QUERY` method represents an interesting evolution of HTTP semantics. It addresses a limitation developers have worked around for years while preserving one of the most important principles of HTTP: letting the request method accurately describe what the operation is doing.
