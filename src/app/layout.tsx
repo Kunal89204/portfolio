@@ -23,31 +23,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kunal Khandelwal | Full Stack Developer",
+  title: "Kunal Khandelwal | Software Engineer",
   description:
-    "Portfolio of Kunal Khandelwal — a passionate full stack developer skilled in building scalable web and mobile applications using the MERN stack and modern technologies.",
-  keywords: [
-    "Kunal Khandelwal",
-    "Full Stack Developer",
-    "MERN Stack",
-    "Web Developer",
-    "React Developer",
-    "Node.js Developer",
-    "JavaScript",
-    "TypeScript",
-    "MongoDB",
-    "Express.js",
-    "Next.js Portfolio",
-  ],
+    "Kunal Khandelwal is a software engineer building full-stack applications, backend systems and infrastructure with TypeScript, React, Next.js, NestJS, PostgreSQL, Redis and Docker.",
+
   authors: [{ name: "Kunal Khandelwal", url: SITE_URL }],
   creator: "Kunal Khandelwal",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Kunal Khandelwal | Full Stack Developer",
+    title: "Kunal Khandelwal | Software Engineer",
     description:
-      "Explore Kunal Khandelwal’s professional portfolio showcasing full stack web development projects built using the MERN stack and modern web technologies.",
+      "Software engineer building web applications, backend systems and technical experiments with TypeScript, React, Next.js, NestJS, PostgreSQL, Redis and Docker.",
     url: SITE_URL,
     siteName: SITE_NAME,
     type: "website",
@@ -62,10 +50,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
-    title: "Kunal Khandelwal | Full Stack Developer",
+    card: "summary_large_image",
+    title: "Kunal Khandelwal | Software Engineer",
     description:
-      "Official portfolio of Kunal Khandelwal, a full stack developer specializing in the MERN stack and scalable web solutions.",
+      "Software engineer building web applications, backend systems and technical experiments with TypeScript, React, Next.js, NestJS, PostgreSQL, Redis and Docker.",
     images: [DEFAULT_OG_IMAGE],
   },
   metadataBase: new URL(SITE_URL),

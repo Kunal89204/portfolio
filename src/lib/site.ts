@@ -7,42 +7,63 @@ export const DEFAULT_OG_IMAGE = "/profileimg.png";
 export const PERSON_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${SITE_URL}/#person`,
+
   name: "Kunal Khandelwal",
+
   url: SITE_URL,
+
   image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+
+  jobTitle: "Software Engineer",
+
   description:
-    "Full Stack Developer specializing in Next.js, React, Node.js, PostgreSQL, Docker, cloud infrastructure, and scalable web and mobileapplications.",
-  jobTitle: "Full Stack Developer",
+    "Software engineer building full-stack applications, backend systems, infrastructure, and technical projects with TypeScript, React, Next.js, NestJS, PostgreSQL, Redis, and Docker.",
+
   sameAs: [
     "https://github.com/kunal89204",
     "https://www.linkedin.com/in/kunal89204/",
-    "https://www.instagram.com/kunal89204/",
+    "https://www.instagram.com/kunal_89204/",
     "https://www.twitter.com/kunal89204/",
   ],
+
   knowsAbout: [
-    "Next.js",
-    "React",
+    "Software Engineering",
+    "Full Stack Development",
+    "Backend Development",
     "TypeScript",
-    "Node.js",
-    "Express.js",
+    "React",
+    "Next.js",
     "NestJS",
     "PostgreSQL",
-    "MongoDB",
     "Redis",
     "Docker",
-    "AWS",
-    "Coolify",
-    "WebSocket Development",
-    "Full Stack Development",
     "Cloud Infrastructure",
-    "SaaS Development",
+    "WebSocket Development",
+    "Blockchain",
+    "Distributed Systems",
   ],
 };
 
 export const WEBSITE_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: SITE_NAME,
+  "@id": `${SITE_URL}/#website`,
+
+  name: "Kunal Khandelwal",
+
   url: SITE_URL,
+
   inLanguage: "en-IN",
+
+  description:
+    "The personal website of Kunal Khandelwal, a software engineer building full-stack applications, backend systems, infrastructure, and technical projects.",
+
+  publisher: {
+    "@id": `${SITE_URL}/#person`,
+  },
+
+  mainEntity: {
+    "@id": `${SITE_URL}/#person`,
+  },
 };
