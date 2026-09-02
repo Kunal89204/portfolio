@@ -95,56 +95,10 @@ export const projects: Project[] = [
     slug: "admatrica",
   },
   {
-    title: "Codefolder",
-    category: "Personal",
-    image: "/images/works/codefolder.png",
-    url: "https://codefolder.vercel.app/",
-  },
-  {
     title: "Envesty",
     category: "Freelance",
     image: "/images/works/envesty.png",
-    url: "https://www.envesty.in/",
-  },
-  {
-    title: "Rent for Reel",
-    category: "Freelance",
-    image: "/images/works/r4r.png",
-    url: "https://www.rentforreel.in/",
-    slug: "rentforreel",
-  },
-  {
-    title: "Tvideo",
-    category: "Personal",
-    image: "/images/works/tvideo.png",
-    url: "https://tvideo.kunalkhandelwal.dev/",
-  },
-  {
-    title: "StudyByU",
-    category: "Freelance",
-    image: "/images/works/studybyu.png",
-    url: "https://studybyu.com/",
-  },
-  {
-    title: "QuantumWhale",
-    category: "Freelance",
-    image: "/images/works/qw.png",
-    url: "https://thequantumwhale.com/",
-    slug: "thequantumwhale",
-  },
-  // Rest of the projects (order does not matter, keeping original order below, minus the ones just listed)
-  {
-    title: "AraBazaar",
-    category: "Founding Engineer",
-    image: "/images/works/arabazaar.png",
-    url: "https://arabazaar.com/",
-    slug: "arabazaar",
-  },
-  {
-    title: "Gymverse Assignment",
-    category: "Personal",
-    image: "/images/works/gymverse.png",
-    url: "https://gymverseassignment.vercel.app/",
+    url: "https://www.envestysolutions.com/",
   },
   {
     title: "Camio PPF",
@@ -153,47 +107,68 @@ export const projects: Project[] = [
     url: "https://camioppf.com/",
   },
   {
-    title: "Quiro",
-    category: "Freelance",
-    image: "/images/works/quiro.png",
-    url: "https://quiro-prod.vercel.app/",
-  },
-  {
     title: "MACH Visuals",
     category: "Freelance",
     image: "/images/works/mach.png",
     url: "https://machvisuals.com/",
   },
   {
-    title: "Tatsat Yoga School",
+    title: "Quiro",
     category: "Freelance",
-    image: "/images/works/tatsat.png",
-    url: "https://www.tatsatyogaschool.org/",
+    image: "/images/works/quiro.png",
+    url: "https://quiro-prod.vercel.app/",
   },
+  // Rest of the projects (order does not matter, keeping original order below, minus the ones just listed)
+  
+  {
+    title: "Gymverse Assignment",
+    category: "Personal",
+    image: "/images/works/gymverse.png",
+    url: "https://gymverseassignment.vercel.app/",
+  },
+  {
+    title: "AraBazaar",
+    category: "Founding Engineer",
+    image: "/images/works/arabazaar.png",
+    url: "https://arabazaar.com/",
+    slug: "arabazaar",
+  },
+  {
+    title: "Tvideo",
+    category: "Personal",
+    image: "/images/works/tvideo.png",
+    url: "https://tvideo.kunalkhandelwal.dev/",
+  },
+  {
+    title: "QuantumWhale",
+    category: "Freelance",
+    image: "/images/works/qw.png",
+    url: "https://thequantumwhale.com/",
+    slug: "thequantumwhale",
+  },
+  
+  {
+    title: "StudyByU",
+    category: "Freelance",
+    image: "/images/works/studybyu.png",
+    url: "https://studybyu.com/",
+  },
+  
+ 
   {
     title: "VisionSphere",
     category: "Freelance",
     image: "/images/works/vs.png",
     url: "https://www.visionsphere361.com/",
   },
-  // {
-  //   title: "Dot-com",
-  //   category: "Personal",
-  //   image: "/images/works/dot-com.png",
-  //   url: "https://dot-com.vercel.app/",
-  // },
+ 
   {
     title: "MULAH",
     category: "Freelance",
     image: "/images/works/mulah.png",
-    url: "https://www.xn--mlah-0ra.com/",
+    url: "https://mulah.cc",
   },
-  {
-    title: "CAA Beige",
-    category: "Freelance",
-    image: "/images/works/caa.png",
-    url: "https://caa-beige.vercel.app/",
-  },
+
   {
     title: "Markzenip",
     category: "Freelance",
@@ -212,12 +187,7 @@ export const projects: Project[] = [
     image: "/images/works/altique.png",
     url: "https://altique.in/",
   },
-  {
-    title: "Conscious India",
-    category: "Freelance",
-    image: "/images/works/mvp.png",
-    url: "https://conscious-india.vercel.app/",
-  },
+
   {
     title: "Bhashabandhu",
     category: "Freelance",

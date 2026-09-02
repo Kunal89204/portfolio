@@ -1,6 +1,6 @@
 export const SITE_URL = "https://kunalkhandelwal.dev";
 
-export const SITE_NAME = "Kunal Khandelwal Portfolio";
+export const SITE_NAME = "Kunal Khandelwal";
 
 export const DEFAULT_OG_IMAGE = "/profileimg.png";
 

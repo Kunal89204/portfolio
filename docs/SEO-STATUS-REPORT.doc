@@ -1,0 +1,276 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Portfolio SEO Status Report — Kunal Khandelwal</title>
+<!--[if gte mso 9]>
+<xml>
+  <w:WordDocument>
+    <w:View>Print</w:View>
+  </w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; line-height: 1.45; color: #111; max-width: 800px; margin: 40px auto; }
+  h1 { font-size: 22pt; color: #0f172a; border-bottom: 2px solid #5b78f6; padding-bottom: 8px; }
+  h2 { font-size: 14pt; color: #1e293b; margin-top: 28px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+  h3 { font-size: 12pt; color: #334155; margin-top: 18px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 20px; font-size: 10pt; }
+  th, td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f1f5f9; font-weight: 600; }
+  code, pre { font-family: Consolas, monospace; font-size: 9.5pt; background: #f8fafc; }
+  pre { padding: 12px; border: 1px solid #e2e8f0; overflow-x: auto; }
+  .meta { color: #64748b; font-size: 10pt; margin-bottom: 24px; }
+  .verdict { background: #ecfdf5; border-left: 4px solid #10b981; padding: 12px 16px; margin: 16px 0; }
+  .gap { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; margin: 16px 0; }
+  ul { margin: 8px 0 16px 22px; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Portfolio SEO Status Report</h1>
+
+<p class="meta">
+  <strong>Site:</strong> https://kunalkhandelwal.dev<br>
+  <strong>Owner:</strong> Kunal Khandelwal<br>
+  <strong>Stack:</strong> Next.js App Router<br>
+  <strong>Report date:</strong> August 8, 2026<br>
+  <strong>Overall SEO health:</strong> Strong (production-ready foundation)
+</p>
+
+<div class="verdict">
+  <strong>Verdict:</strong> Core technical SEO is in place. Remaining gains come from content volume,
+  dedicated OG images, Search Console monitoring, and structured-data enhancements (BreadcrumbList / ItemList).
+</div>
+
+<h2>1. Executive Summary</h2>
+
+<table>
+  <tr><th>Area</th><th>Status</th></tr>
+  <tr><td>Root metadata (title, description, OG, Twitter)</td><td>Implemented</td></tr>
+  <tr><td>Page-level metadata (About, Works, Blog, Contact, Credentials)</td><td>Implemented</td></tr>
+  <tr><td>Dynamic project case study SEO</td><td>Implemented</td></tr>
+  <tr><td>Dynamic blog post SEO</td><td>Implemented</td></tr>
+  <tr><td>Sitemap (/sitemap.xml)</td><td>Implemented</td></tr>
+  <tr><td>Robots (/robots.txt)</td><td>Implemented</td></tr>
+  <tr><td>Structured data (JSON-LD)</td><td>Implemented</td></tr>
+  <tr><td>Analytics (GA4 + GTM)</td><td>Implemented</td></tr>
+  <tr><td>MDX-driven indexable content</td><td>Implemented</td></tr>
+</table>
+
+<h2>2. Site Configuration</h2>
+
+<table>
+  <tr><th>Setting</th><th>Value</th></tr>
+  <tr><td>Canonical base URL</td><td>https://kunalkhandelwal.dev</td></tr>
+  <tr><td>Site name</td><td>Kunal Khandelwal</td></tr>
+  <tr><td>Language</td><td>en (html lang)</td></tr>
+  <tr><td>Open Graph locale</td><td>en_IN</td></tr>
+  <tr><td>Default OG image</td><td>/profileimg.png</td></tr>
+  <tr><td>metadataBase</td><td>Set in root layout</td></tr>
+</table>
+
+<p><strong>Source files:</strong> <code>src/lib/site.ts</code>, <code>src/app/layout.tsx</code></p>
+
+<h2>3. Root / Global Metadata</h2>
+
+<table>
+  <tr><th>Field</th><th>Current value</th></tr>
+  <tr><td>Title</td><td>Kunal Khandelwal | Software Engineer</td></tr>
+  <tr><td>Description</td><td>Software engineer building full-stack applications, backend systems and infrastructure with TypeScript, React, Next.js, NestJS, PostgreSQL, Redis and Docker.</td></tr>
+  <tr><td>Canonical</td><td>/ (via metadataBase)</td></tr>
+  <tr><td>Open Graph</td><td>title, description, url, siteName, type=website, locale, images</td></tr>
+  <tr><td>Twitter</td><td>summary_large_image + title, description, images</td></tr>
+  <tr><td>Authors / Creator</td><td>Kunal Khandelwal</td></tr>
+</table>
+
+<h2>4. Static Page Metadata Matrix</h2>
+
+<table>
+  <tr><th>Route</th><th>Title</th><th>Canonical</th><th>Open Graph</th><th>Keywords</th></tr>
+  <tr><td>/</td><td>Kunal Khandelwal | Software Engineer</td><td>Yes</td><td>Yes + Twitter</td><td>No (root)</td></tr>
+  <tr><td>/works</td><td>Works | Kunal Khandelwal</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>/blog</td><td>Blog | Kunal Khandelwal</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>/about</td><td>About | Kunal Khandelwal</td><td>Yes</td><td>Yes (profile)</td><td>Yes</td></tr>
+  <tr><td>/credentials</td><td>Credentials | Kunal Khandelwal</td><td>Yes</td><td>Yes (profile)</td><td>Yes</td></tr>
+  <tr><td>/contact</td><td>Contact | Kunal Khandelwal</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+</table>
+
+<h2>5. Dynamic Project Case Studies (/works/[id])</h2>
+
+<p><strong>Content:</strong> <code>content/projects/*.mdx</code><br>
+<strong>Helpers:</strong> <code>project.ts</code>, <code>project-seo.ts</code><br>
+<strong>Metadata:</strong> <code>generateMetadata</code> in works/[id]/layout.tsx<br>
+<strong>JSON-LD:</strong> CreativeWork on project detail pages</p>
+
+<h3>Frontmatter contract</h3>
+<pre>title, slug, category, description, client, website, image, stack</pre>
+
+<h3>Generated fields</h3>
+<table>
+  <tr><th>Field</th><th>Behavior</th></tr>
+  <tr><td>Title</td><td>{Project Title} | Kunal Khandelwal</td></tr>
+  <tr><td>Description</td><td>frontmatter.description</td></tr>
+  <tr><td>Canonical</td><td>https://kunalkhandelwal.dev/works/{slug}</td></tr>
+  <tr><td>Robots</td><td>index: true, follow: true</td></tr>
+  <tr><td>Open Graph</td><td>article + images</td></tr>
+  <tr><td>Twitter</td><td>summary_large_image</td></tr>
+  <tr><td>JSON-LD</td><td>CreativeWork</td></tr>
+</table>
+
+<h3>Indexed case studies (4)</h3>
+<table>
+  <tr><th>Slug</th><th>Title</th><th>Category</th><th>Image</th></tr>
+  <tr><td>admatrica</td><td>Admatrica</td><td>Freelance</td><td>/images/works/admatrica.png</td></tr>
+  <tr><td>arabazaar</td><td>AraBazaar</td><td>Founding Engineer</td><td>/images/works/arabazaar.png</td></tr>
+  <tr><td>rentforreel</td><td>Rent for Reel</td><td>Freelance</td><td>/images/works/r4r.png</td></tr>
+  <tr><td>thequantumwhale</td><td>The Quantum Whale</td><td>Freelance</td><td>/images/works/qw.png</td></tr>
+</table>
+
+<div class="gap">
+  <strong>Gap:</strong> Only 4 of ~20 works-grid projects have MDX case studies.
+  Others are outbound-only and not sitemap detail pages.
+</div>
+
+<h2>6. Dynamic Blog Posts (/blog/[slug])</h2>
+
+<p><strong>Content:</strong> <code>content/blogs/*.mdx</code><br>
+<strong>Helpers:</strong> <code>blog.ts</code>, <code>blog-seo.ts</code><br>
+<strong>JSON-LD:</strong> Article schema</p>
+
+<h3>Published posts (2)</h3>
+<table>
+  <tr><th>Slug</th><th>Title</th><th>Date</th><th>Image</th></tr>
+  <tr><td>integrating-plaid-in-production</td><td>How I Learned Plaid While Building a Finance Application</td><td>June 25, 2026</td><td>/plaid.png</td></tr>
+  <tr><td>http-query-method-explained-why-get-and-post-arent-always-enough</td><td>Why GET and POST Aren't Always Enough…</td><td>July 8, 2026</td><td>/httpquery.png</td></tr>
+</table>
+
+<p>Drafts with <code>published: false</code> are excluded from listing, indexing, and sitemap.</p>
+
+<h2>7. Sitemap</h2>
+
+<p><strong>URL:</strong> https://kunalkhandelwal.dev/sitemap.xml<br>
+<strong>File:</strong> <code>src/app/sitemap.ts</code></p>
+
+<ul>
+  <li><strong>Static (6):</strong> /, /works, /blog, /about, /credentials, /contact</li>
+  <li><strong>Projects:</strong> all content/projects/*.mdx → /works/{slug}</li>
+  <li><strong>Blogs:</strong> published content/blogs/*.mdx → /blog/{slug}</li>
+</ul>
+
+<p><strong>Current size:</strong> 6 static + 4 projects + 2 blogs = <strong>12 URLs</strong></p>
+
+<p><strong>Safeguards:</strong> no /works/undefined; drafts excluded; lastModified from file mtime.</p>
+
+<h2>8. Robots.txt</h2>
+
+<p><strong>URL:</strong> https://kunalkhandelwal.dev/robots.txt</p>
+<pre>User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://kunalkhandelwal.dev/sitemap.xml</pre>
+
+<h2>9. Structured Data (JSON-LD)</h2>
+
+<table>
+  <tr><th>Schema</th><th>Where</th><th>Purpose</th></tr>
+  <tr><td>Person</td><td>Root layout</td><td>Identity, jobTitle, sameAs, knowsAbout</td></tr>
+  <tr><td>WebSite</td><td>Root layout</td><td>Site entity linked to Person via @id</td></tr>
+  <tr><td>CreativeWork</td><td>Project pages</td><td>Case study context</td></tr>
+  <tr><td>Article</td><td>Blog pages</td><td>Headline, dates, author</td></tr>
+</table>
+
+<p><strong>Recommended next:</strong> BreadcrumbList on detail pages; ItemList on /works and /blog.</p>
+
+<h2>10. Analytics (SEO-adjacent)</h2>
+
+<table>
+  <tr><th>Tool</th><th>ID</th><th>Status</th></tr>
+  <tr><td>Google Analytics 4</td><td>G-XGFPCV10CX</td><td>Loaded in root layout</td></tr>
+  <tr><td>Google Tag Manager</td><td>GTM-KB7M5KBL</td><td>Loaded in root layout</td></tr>
+</table>
+
+<p>SPA page views tracked via <code>usePageView</code> on Works, Blog, and detail pages.
+Engagement events cover case study clicks, blog clicks, outbound project links, and contact actions.</p>
+
+<h2>11. Scoring Snapshot</h2>
+
+<table>
+  <tr><th>Category</th><th>Score (1–10)</th><th>Notes</th></tr>
+  <tr><td>Technical metadata</td><td>9</td><td>Strong titles, descriptions, canonicals, OG/Twitter</td></tr>
+  <tr><td>Crawlability</td><td>9</td><td>robots + sitemap + MDX URLs</td></tr>
+  <tr><td>Structured data</td><td>8</td><td>Person/WebSite/Article/CreativeWork</td></tr>
+  <tr><td>Content depth</td><td>6</td><td>4 case studies + 2 posts</td></tr>
+  <tr><td>Social sharing assets</td><td>6</td><td>Custom post images; project OG not 1200×630-optimized</td></tr>
+  <tr><td>Internal linking</td><td>7</td><td>Home → works/blog; case-study cards highlighted</td></tr>
+</table>
+
+<p><strong>Overall: ~8/10 technical SEO</strong> for a personal portfolio. Content volume is the main limiter.</p>
+
+<h2>12. Risks &amp; Gaps</h2>
+<ol>
+  <li>Thin content surface vs many external-only projects.</li>
+  <li>Default OG image may not be ideal 1200×630 for LinkedIn/Twitter.</li>
+  <li>No BreadcrumbList / ItemList yet.</li>
+  <li>Possible GA + GTM double-counting if GTM also loads GA — verify config.</li>
+  <li>Raw script tags for GA (Next prefers next/script) — hygiene, not SEO-blocking.</li>
+</ol>
+
+<h2>13. Recommended Next Actions</h2>
+
+<h3>High priority</h3>
+<ol>
+  <li>Submit sitemap in Google Search Console.</li>
+  <li>Request indexing for new /works/* and /blog/* URLs after publish.</li>
+  <li>Add more MDX case studies for top projects.</li>
+  <li>Publish 1–2 blog posts per month.</li>
+</ol>
+
+<h3>Medium priority</h3>
+<ol>
+  <li>Create dedicated 1200×630 OG images per case study and post.</li>
+  <li>Add BreadcrumbList JSON-LD to detail pages.</li>
+  <li>Add ItemList JSON-LD to /works and /blog.</li>
+  <li>Add datePublished / dateModified to project frontmatter.</li>
+</ol>
+
+<h3>Lower priority</h3>
+<ol>
+  <li>Migrate GA/GTM to next/script.</li>
+  <li>Validate JSON-LD with Google Rich Results Test.</li>
+  <li>Audit LinkedIn share previews with Post Inspector.</li>
+</ol>
+
+<h2>14. SEO File Map</h2>
+<pre>
+src/app/layout.tsx
+src/app/sitemap.ts
+src/app/robots.ts
+src/app/*/layout.tsx
+src/app/works/[id]/layout.tsx + page.tsx
+src/app/blog/[slug]/layout.tsx + page.tsx
+src/lib/site.ts
+src/lib/project.ts / project-seo.ts
+src/lib/blog.ts / blog-seo.ts
+src/lib/gtag.ts
+content/projects/*.mdx
+content/blogs/*.mdx
+</pre>
+
+<h2>15. Conclusion</h2>
+
+<p>Your portfolio SEO setup is <strong>production-ready</strong> for App Router: absolute canonicals,
+social metadata on dynamic MDX pages, correct sitemap/robots, and Person + WebSite + Article + CreativeWork
+structured data.</p>
+
+<p>The biggest opportunity is <strong>more indexable content</strong> (additional case studies and blog posts),
+followed by dedicated social images and Breadcrumb/ItemList schema.</p>
+
+<p class="meta"><em>Generated for kunalkhandelwal.dev — August 8, 2026</em></p>
+
+</body>
+</html>
