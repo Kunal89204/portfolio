@@ -29,18 +29,23 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-
   // Handle input changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
       trackContactForm({ status: "validation_error" });
       alert("Please fill in all fields");
       return;
@@ -50,10 +55,10 @@ const Contact = () => {
     trackContactForm({ status: "attempt" });
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -62,10 +67,13 @@ const Contact = () => {
 
       if (response.ok) {
         trackContactForm({ status: "success" });
-        alert("Thank you! Your message has been sent successfully. I'll get back to you soon.");
+        alert(
+          "Thank you! Your message has been sent successfully. I'll get back to you soon."
+        );
         setFormData({ name: "", email: "", message: "" });
       } else {
-        const errorMessage = result.error || "Something went wrong. Please try again.";
+        const errorMessage =
+          result.error || "Something went wrong. Please try again.";
         trackContactForm({ status: "server_error", errorMessage });
         alert(errorMessage);
       }
@@ -107,26 +115,33 @@ const Contact = () => {
     trackSocialClick(platform, url);
   };
   return (
-    <div className="px-6 lg:px-4  max-w-[1200px] mx-auto mt-20 flex flex-col items-center">
-      <div className="flex gap-20 w-full mt-14">
-        <div className="w-1/3">
+    <div className="px-4 sm:px-6 lg:px-4 max-w-[1200px] mx-auto mt-10 sm:mt-16 flex flex-col items-center">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 w-full mt-10 sm:mt-14">
+        {/* Contact Info Section */}
+        <div className="w-full lg:w-1/3 mb-10 lg:mb-0">
           <h3 className="text-xl font-semibold">Contact Info</h3>
-
           {socialLinks.map((link) => (
-            <div key={link.label} className="flex gap-4 py-6">
-              <div className="p-5 rounded-lg bg-gradient-to-br from-[#202020] to-[#090909] border border-[#202020] aspect-square flex items-center justify-center">
+            <div key={link.label} className="flex gap-4 py-6 items-center">
+              <div className="p-5 rounded-lg bg-gradient-to-br from-[#202020] to-[#090909] border border-[#202020] aspect-square flex items-center justify-center min-w-[56px]">
                 {link.icon}
               </div>
               <div>
                 <p className="text-[#505050] font-semibold">{link.label}</p>
                 <a
-                  href={link.label === "Mail me" ? `mailto:${link.link}` : link.link}
+                  href={
+                    link.label === "Mail me"
+                      ? `mailto:${link.link}`
+                      : link.link
+                  }
                   target={link.label === "Mail me" ? "_self" : "_blank"}
                   rel="noopener noreferrer"
+                  className="break-all"
                   onClick={() =>
                     handleSocialClick(
                       link.platform,
-                      link.label === "Mail me" ? `mailto:${link.link}` : link.link
+                      link.label === "Mail me"
+                        ? `mailto:${link.link}`
+                        : link.link
                     )
                   }
                 >
@@ -136,22 +151,27 @@ const Contact = () => {
             </div>
           ))}
         </div>
-        <div className="gray-gradient p-10 rounded-3xl border w-2/3">
+        {/* Form Section */}
+        <div className="gray-gradient p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border w-full lg:w-2/3">
           <div>
-            <h2 className="text-5xl">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2">
               Let&apos;s work <span>together</span>
             </h2>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-4 mt-4 relative z-30">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4 py-4 mt-4 relative z-30"
+          >
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Name"
-              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4"
+              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4 w-full text-base"
               disabled={isSubmitting}
+              autoComplete="name"
             />
             <input
               type="email"
@@ -159,18 +179,19 @@ const Contact = () => {
               value={formData.email}
               onChange={handleInputChange}
               placeholder="Email"
-              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4"
+              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4 w-full text-base"
               disabled={isSubmitting}
+              autoComplete="email"
             />
             <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Message"
-              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4 resize-none h-40"
+              className="bg-gradient-to-br focus:outline-0 from-[#303030] to-[#181818]  rounded-lg p-4 resize-none h-32 sm:h-40 w-full text-base"
               disabled={isSubmitting}
             />
-            <button 
+            <button
               type="submit"
               disabled={isSubmitting}
               className="bg-[#303030] font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300 text-white rounded-lg p-4 disabled:opacity-50 disabled:cursor-not-allowed"
